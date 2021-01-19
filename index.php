@@ -1,5 +1,7 @@
 <?php
   session_start();
+
+  include('./components/db.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,5 +16,6 @@
 </head>
 <body>
   <?php include_once('components/router.php'); ?>
+
 </body>
 </html>
