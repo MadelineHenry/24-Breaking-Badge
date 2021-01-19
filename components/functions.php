@@ -12,12 +12,12 @@
 
   function isAuthenticated(){
     session_start_once();
-    return !empty($_SESSION['id']);
+    return !empty($_SESSION['user_id']);
   }
 
   function isAdmin(){
     session_start_once();
-    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
+    return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
   }
 
   function login($email, $password){
@@ -28,7 +28,7 @@
     $query->execute([$email]);
     $results = $query->fetch();
     
-    $cursor->closeCursor();
+    // $cursor->closeCursor();
 
     if(password_verify($password, $results['password'])){
       $_SESSION['user_id'] = $results['id'];
