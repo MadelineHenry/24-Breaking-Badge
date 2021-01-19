@@ -17,7 +17,7 @@
 
   function isAdmin(){
     session_start_once();
-    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
+    return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
   }
 
   function login($email, $password){
@@ -28,16 +28,16 @@
     $query->execute([$email]);
     $results = $query->fetch();
     
-    $cursor->closeCursor();
+    // $cursor->closeCursor();
 
     if(password_verify($password, $results['password'])){
       $_SESSION['user_id'] = $results['id'];
       $_SESSION['account_type'] = $results['account_type'];
       $_SESSION['email'] = $email;
 
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   function logout(){

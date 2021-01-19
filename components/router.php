@@ -1,17 +1,20 @@
 <?php
   include_once('functions.php');
-
   $routes = [];
   $routes['dashboard'] = 'Dashboard';
   $routes['badges'] = 'All badges';
   $routes['students'] = 'All students';
 
+ if (!empty($_GET['p'])){
   $requestedPage = $_GET['p'];
+ } else {
+  $requestedPage = "";
+ }
 
   if(!isAuthenticated()){
-    // include the login page
+    include('./pages/login.php');
   }
-  if(array_key_exists($requestedPage, $routes)){
+  else if(array_key_exists($requestedPage, $routes)){
     include_once('navbar.php');
 
     // include the page

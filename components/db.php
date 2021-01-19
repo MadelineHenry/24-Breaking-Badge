@@ -1,8 +1,8 @@
 <?php
-  $DB_HOST = '';
-  $DB_NAME = '';
-  $DB_USER = '';
-  $DB_PASSWORD = '';
+  $DB_HOST = 'localhost';
+  $DB_NAME = 'jean';
+  $DB_USER = 'jean';
+  $DB_PASSWORD = 'coucou';
 
   function createCursor(){
       return new PDO("
