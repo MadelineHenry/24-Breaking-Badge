@@ -61,5 +61,5 @@ Based on an organisation with a Trello and sketch :
 * **Cemil** _alias_ [@Cemil1000](https://github.com/Cemil1000)
 * **Igor** _alias_ [@IgorDeSpi](https://github.com/IgorDeSpi)
 
-With the help of the group Bérilium :gift_heart:
+With the help of the group Bérillium :gift_heart:
 Thanks again to them!
