@@ -1,7 +1,7 @@
 <?php
-  $DB_HOST = '';
-  $DB_NAME = '';
-  $DB_USER = '';
+  $DB_HOST = 'localhost';
+  $DB_NAME = 'breaking_ha';
+  $DB_USER = 'root';
   $DB_PASSWORD = '';
 
   function createCursor(){
