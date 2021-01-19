@@ -1,4 +1,5 @@
 <?php 
+
  if($_SESSION['account_type'] === 'ADMIN'){
      
     include_once('navbarAdmin.php');
@@ -14,7 +15,7 @@ if($_SESSION['account_type'] === 'NORMIES'){
     /* my badges */
 }
 
-/* badges */
+include("../components/allBadgesContent.php");
 
 
  ?>
