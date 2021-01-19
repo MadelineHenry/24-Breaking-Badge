@@ -1,20 +1,22 @@
 <?php
-  include_once('functions.php');
+//   include_once('functions.php');
+//   $routes = [];
+//   $routes['dashboard'] = 'Dashboard';
+//   $routes['badges'] = 'All badges';
+//   $routes['students'] = 'All students';
 
-  $routes = [];
-  $routes['dashboard'] = 'Dashboard';
-  $routes['badges'] = 'All badges';
-  $routes['students'] = 'All students';
-
-  $requestedPage = $_GET['p'];
+//  if (!empty($_GET['p'])){
+//   $requestedPage = $_GET['p'];
+//  } else {
+//   $requestedPage = "";
+//  }
 
   if(!isAuthenticated()){
-    // include the login page
+    include('./pages/login.php');
   }
-  if(array_key_exists($requestedPage, $routes)){
-    include_once('navbar.php');
+  else{
+  include_once('badges.php');
 
-    // include the page
   }
-  echo $requestedPage;
+  // echo $requestedPage;
 ?>
