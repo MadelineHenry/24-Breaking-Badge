@@ -45,10 +45,10 @@ etc.
 
 ## Visual
 Based on the following mockup : 
-[@ON FIGMA](https://www.figma.com/)
+[@ON FIGMA](https://www.figma.com/file/vewCA8ZXhsgpwG8RYvmDGK/Untitled?node-id=1%3A2)
 
 Based on an organisation with a Trello and sketch : 
-[@TRELLO](https://trello.com/b/OD0n2NCn/)
+[@TRELLO](https://trello.com/b/m4MUdxza/breaking-badge)
  
 
 ## Auteurs
@@ -57,5 +57,5 @@ Based on an organisation with a Trello and sketch :
 * **Cemil** _alias_ [@Cemil1000](https://github.com/Cemil1000)
 * **Igor** _alias_ [@IgorDeSpi](https://github.com/IgorDeSpi)
 
-With the help of the group 6 :gift_heart:
+With the help of the group Bérilium :gift_heart:
 Thanks again to them!
