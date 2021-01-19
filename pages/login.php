@@ -21,14 +21,14 @@
                 <h1 class="welcome_title">Welcome</h1>
                 <h2 class="BB_title">To Breaking Badges</h2>
             </div>
-            <div class="email_input">
-                <input for="email" type="email" name="email" placeholder="Email"></input>
+            <div>
+                <input for="email" type="email" name="email" placeholder="Email" class="email_input"></input>
             </div>
-            <div class="psw_input">
-                <input for="password" type="password" name="password" placeholder="Password"></input>
+            <div>
+                <input for="password" type="password" name="password" placeholder="Password" class="psw_input"></input>
             </div>
             <div class="submit_input">
-                <button class="login_button" type="submit">Log In</button>
+                <button type="submit" class="login_button">Log In</button>
             </div>
         </form>
     </div>
