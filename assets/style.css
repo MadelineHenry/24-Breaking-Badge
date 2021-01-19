@@ -27,8 +27,7 @@ h2.BB_title{
     border: none;
     border-bottom: 1px solid rgb(151, 151, 151);
     padding: 5px;
-    margin : 0 0 20px;
-    
+    margin : 0 0 20px;  
 }
 
 .submit_input{
@@ -50,4 +49,30 @@ h2.BB_title{
 
 .login_button:hover{
 
+}
+
+/* addUsers Page */
+
+.addUsers_container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.addUsers_title_form{
+    color: rgb(68, 68, 68);
+    font-size: 25px;
+    margin:  50px 0 50px 0;
+}
+
+.addFirstName_input , .addLastName_input, .addEmail_input, .addPsw_input, .addAccountType_input{
+    height: 20px;
+    width: 220px;
+    color: rgb(151, 151, 151);
+    font-size: 13px;
+    border: none;
+    border-bottom: 1px solid rgb(151, 151, 151);
+    padding: 5px;
+    margin : 0 0 20px;  
 }

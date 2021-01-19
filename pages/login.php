@@ -16,8 +16,8 @@
 
 <body>
     <div class="login_container">
-        <form method="post">
-            <div class="titles">
+        <form method="post" class="login_form">
+            <div class="login_titles">
                 <h1 class="welcome_title">Welcome</h1>
                 <h2 class="BB_title">To Breaking Badges</h2>
             </div>
