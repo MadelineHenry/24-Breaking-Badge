@@ -15,7 +15,9 @@ This is a web development exercise carried out with the BECODE training to learn
 
 ## Objectif
 
-- 
+- Create a fullstack application that distributes badges and a relational database (many-to-many relationships). There will therefore be two possible sessions: administrators and users. 
+
+So there will be two possibilities of sessions: administrators and users. The administrator will be able to add users, assign badges to them and the user will be able to have an explanatory list of the different badges and see which ones he has obtained.
 
 ### Pre-requisite :bowtie:
 
@@ -35,11 +37,13 @@ What you need to get started ...
 
 PHP :
 - Session (login)
-- Connection history 
+- Connection history
+- List informations
+- Connection to Database 
 etc.
 
 Back end : 
-- Creation of Data base
+- Creation of relational database
 - Link between the site and the database
 etc.
 
@@ -57,5 +61,5 @@ Based on an organisation with a Trello and sketch :
 * **Cemil** _alias_ [@Cemil1000](https://github.com/Cemil1000)
 * **Igor** _alias_ [@IgorDeSpi](https://github.com/IgorDeSpi)
 
-With the help of the group Bérilium :gift_heart:
+With the help of the group Bérillium :gift_heart:
 Thanks again to them!
