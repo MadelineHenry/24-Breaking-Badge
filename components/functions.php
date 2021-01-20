@@ -12,7 +12,7 @@
 
   function isAuthenticated(){
     session_start_once();
-    return !empty($_SESSION['id']);
+    return !empty($_SESSION['user_id']);
   }
 
   function isAdmin(){
@@ -24,13 +24,11 @@
     session_start_once();
 
     $cursor = createCursor();
-    $query = $cursor->prepare('SELECT id, password from users WHERE email=?');
+    $query = $cursor->prepare('SELECT id, password, account_type FROM users WHERE email=?');
     $query->execute([$email]);
     $results = $query->fetch();
-    
-    $cursor->closeCursor();
 
-    if(password_verify($password, $results['password'])){
+    if(!empty($results) AND password_verify($password, $results['password'])){
       $_SESSION['user_id'] = $results['id'];
       $_SESSION['account_type'] = $results['account_type'];
       $_SESSION['email'] = $email;
