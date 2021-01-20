@@ -52,20 +52,13 @@ function session_start_once()
     $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
     $req = $db->prepare($sql);
     $req->execute();
-    header("location:badg.php");
+    header("location:badges.php");
   }
 
   function logout(){
     session_start_once();
     session_destroy();
   }
-
-
-function logout()
-{
-  session_start_once();
-  session_destroy();
-}
 
 //JEAN
 function getBadges()
@@ -90,7 +83,6 @@ echo $content;
 
 function getUserBadges()
 {
-  $_SESSION['user_id']=4;
   $bdd = createCursor();
   $requestBadgesUser = $bdd->prepare("SELECT name_badge, color_badge FROM users_has_badges 
   INNER JOIN users ON users_has_badges.fk_id_users=users.id 

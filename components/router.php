@@ -7,7 +7,6 @@
   }
   else{
   include_once('badges.php');
-
   }
 
 ?>
