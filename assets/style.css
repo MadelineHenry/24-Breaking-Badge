@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    ;
+}
 /* Body */
- /* body {
+ body {
     margin: 0;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto; */
+    grid-template-rows: auto 1fr auto;
      /* background-color: red;  */
-/* } */
+}
 
 /* Navbar */
 .header {
@@ -203,10 +210,44 @@ h2.addUsers_title_form {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-left: 0.5%;
 }
 
 .allBadges{
     display:flex;
-    
 }
+.tous_les_badges{
+    margin-left: 1%;
+}
+.toute_la_partie_all_badges{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
+}
+.toute_la_partie_my_badges{
+    display: flex;
+    align-items: center;
+}
+
+/* Footer */
+.footer {
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4d4d4d;
+    color: black;
+    text-align: center;
+    font-family: 'Bodoni Moda', serif;
+    padding-bottom: 5px;
+    margin-top: 2px;
+}
+.footer>p:nth-child(1) {
+    padding-top: 5px;
+    margin: 0px;
+}
+
+.footer>p:nth-child(2), .footer>p:nth-child(3) {
+    margin: 0px;
+}
+
