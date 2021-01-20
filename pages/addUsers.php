@@ -39,6 +39,9 @@
                 <button type="submit" class="addUser_button">Submit</button>
             </div>
         </form>
+        <div>
+            <img src="../assets/badges.png" alt="badges_image">
+        </div>
     </div>
 </body>
 
