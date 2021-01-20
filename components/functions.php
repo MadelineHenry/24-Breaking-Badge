@@ -68,11 +68,11 @@ function getBadges()
 
   while ($answerOneBadge = $requestAllBadges->fetch()) {
     ob_start(); ?>
-    <div class='allBadges' style='display:flex'>
-      <div class='badge' style='display:flex;justify-content:center;align-items:center;height:100px;width:100px;border-radius:50%;background-color:<?= $answerOneBadge['color_badge'] ?>'>
+    <div class='allBadges'>
+      <div class='badge' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
         <?= $answerOneBadge['name_badge'] ?>
       </div>
-      <div style='display:flex;justify-content:center;align-items:center;'>
+      <div class='badge_description'>
         <?= $answerOneBadge['description_badge'] ?>
       </div>
     </div>
@@ -92,7 +92,7 @@ function getUserBadges()
  
 
   while ($answerOneBadge = $requestBadgesUser->fetch()) {ob_start(); ?>
-      <div class='badge' style='display:flex;justify-content:center;align-items:center;height:100px;width:100px;border-radius:50%;background-color:<?= $answerOneBadge['color_badge'] ?>'>
+      <div class='badge' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
         <?= $answerOneBadge['name_badge'] ?>
       </div>
     <?php
