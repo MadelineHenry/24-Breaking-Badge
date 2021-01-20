@@ -1,11 +1,12 @@
 /* Body */
-body {
+ /* body {
     margin: 0;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    /* background-color: red; */
-}
+    grid-template-rows: auto 1fr auto; */
+     /* background-color: red;  */
+/* } */
+
 /* Navbar */
 .header {
     overflow: hidden;
@@ -16,6 +17,7 @@ body {
     justify-content: space-between;
     margin-bottom: 10px;
 }
+
 .header a {
     color: black;
     text-align: center;
@@ -23,25 +25,27 @@ body {
     font-size: 25px;
     border-radius: 4px;
 }
+
 .header-right a:hover {
     background-color: #ddd;
     color: black;
 }
+
 .padding_box {
     padding: 10px;
 }
 
-.header-left{
+.header-left {
     display: flex;
     align-items: center;
 }
 
-.navbar_gauche{
+.navbar_gauche {
     margin-left: 30px;
     font-size: 25px;
 }
 
-.navbar_gauche:hover{
+.navbar_gauche:hover {
     cursor: default;
 }
 
@@ -49,15 +53,15 @@ body {
     display: flex;
 }
 
-.navbar_droite{
+.navbar_droite {
     margin: 0px 10px;
 }
 
-.logo{
+.logo {
     margin-left: 20px;
 }
 
-.logo > img:nth-child(1){
+.logo>img:nth-child(1) {
     width: 160px;
     height: 80px;
 }
@@ -76,26 +80,27 @@ body {
 
 /* Login page*/
 
-.login_container{
+.login_container {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h1.welcome_title{
+h1.welcome_title {
     color: rgb(68, 68, 68);
     font-size: 40px;
     margin-bottom: 5px;
 }
 
-h2.BB_title{
+h2.BB_title {
     color: rgb(68, 68, 68);
     font-size: 25px;
-    margin:  10px 0 50px 0;
+    margin: 10px 0 50px 0;
 }
 
-.email_input, .psw_input {
+.email_input,
+.psw_input {
     height: 20px;
     width: 220px;
     color: rgb(151, 151, 151);
@@ -103,18 +108,18 @@ h2.BB_title{
     border: none;
     border-bottom: 1px solid rgb(151, 151, 151);
     padding: 5px;
-    margin : 0 0 20px;  
+    margin: 0 0 20px;
 }
 
-.submit_input{
+.submit_input {
     height: 20px;
     width: 220px;
-    margin : 15px 0 20px;
+    margin: 15px 0 20px;
 }
 
-.login_button{
+.login_button {
     height: 20px;
-    width: 220px; 
+    width: 220px;
     color: rgb(88, 88, 88);
     border: none;
     border-radius: 4px;
@@ -123,32 +128,34 @@ h2.BB_title{
     font-size: 15px;
 }
 
-.login_button:hover{
-
-}
+.login_button:hover {}
 
 /* addUsers Page */
 
-.addUsers_container{
+.addUsers_container {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.addUsers_form{
+.addUsers_form {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h2.addUsers_title_form{
+h2.addUsers_title_form {
     color: rgb(68, 68, 68);
     font-size: 25px;
-    margin:  50px 0 50px 0;
+    margin: 50px 0 50px 0;
 }
 
-.addFirstName_input , .addLastName_input, .addEmail_input, .addPsw_input, .addAccountType_input{
+.addFirstName_input,
+.addLastName_input,
+.addEmail_input,
+.addPsw_input,
+.addAccountType_input {
     height: 20px;
     width: 220px;
     color: rgb(151, 151, 151);
@@ -156,12 +163,12 @@ h2.addUsers_title_form{
     border: none;
     border-bottom: 1px solid rgb(151, 151, 151);
     padding: 5px;
-    margin : 0 0 20px;  
+    margin: 0 0 20px;
 }
 
-.addUser_button{
+.addUser_button {
     height: 20px;
-    width: 220px; 
+    width: 220px;
     color: rgb(88, 88, 88);
     border: none;
     border-radius: 4px;
@@ -170,11 +177,9 @@ h2.addUsers_title_form{
     font-size: 15px;
 }
 
-.addUser_button:hover{
+.addUser_button:hover {}
 
-}
-
-img{
+.ImageDeMADELINE {
     width: 350px;
     height: 350px;
     display: flex;
@@ -183,3 +188,25 @@ img{
     margin-top: 70px;
 }
 
+/* Badges */
+.badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.badge_description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.allBadges{
+    display:flex;
+    
+}
