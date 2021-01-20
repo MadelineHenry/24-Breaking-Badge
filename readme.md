@@ -30,7 +30,7 @@ What you need to get started ...
 - basics in **DataBase**
 - Top work mates or a good ability to do internet research on your own :muscle: 
 
-## What did I used ?
+## What did we used ?
 
 - Tag Html
 - Script Css
