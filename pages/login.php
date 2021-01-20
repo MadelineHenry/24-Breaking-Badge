@@ -3,7 +3,7 @@
 
     if (!empty($_POST["email"])) {
         if (login($_POST["email"],$_POST["password"])) {
-            // header("location:badg.php");
+            header("location:badges.php");
         }
         else{
             echo 'log not very ok';
