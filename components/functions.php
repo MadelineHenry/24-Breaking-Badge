@@ -38,6 +38,22 @@
     return false;
   }
 
+  function signin(){
+    session_start_once();
+
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $account_type = $_POST['account_type'];
+
+    $db = createCursor();
+    $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
+    $req = $db->prepare($sql);
+    $req->execute();
+    header("location:badg.php");
+  }
+
   function logout(){
     session_start_once();
     session_destroy();
