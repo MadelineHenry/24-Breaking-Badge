@@ -4,17 +4,21 @@
 
         <div class="header-left">
 
-            <a href="#" class="logo-zoom"><img src="" alt="logo"></a>
-            <div class="zoom"><?php echo 'Welcome ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?></div>
+            <a href="#" class="logo"><img class='zoom' src="../assets/breakingbadge.png" alt="logo"></a>
+            <div class="navbar_gauche">
+                <?php 
+                    // echo 'Welcome ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] 
+                ?>
+            </div>
 
         </div>
 
         <div class="header-right">
-            
-            <div class="zoom"><a class='padding_box' href="#">BADGES</a></div>
-            <div class="zoom"><a class='padding_box' href="#">USERS</a></div>
-            <div class="zoom"><a class='padding_box' href="#">ADD USER</a></div>
-            <div class="zoom"><a class='padding_box' href="./logout.php">Log out</a></div> 
+
+            <div class="zoom navbar_droite"><a class='padding_box' href="#">BADGES</a></div>
+            <div class="zoom navbar_droite"><a class='padding_box' href="#">USERS</a></div>
+            <div class="zoom navbar_droite"><a class='padding_box' href="#">ADD USER</a></div>
+            <div class="zoom navbar_droite"><a class='padding_box' href="./logout.php">Log out</a></div>
 
         </div>
 
