@@ -5,9 +5,9 @@
 ## Project infos 
 
 - **Type of challenge**: consolidation
-- **Duration**: 3 days
+- **Duration**: 4 days
 - **Team challenge**: team of 4
-- **Deadline**: 21/01/2021 19:00
+- **Deadline**: 22/01/2021 19:00
 
 ## What is this project about :grey_question:
 
