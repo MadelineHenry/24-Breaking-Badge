@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <?php include('../components/navbarAdmin.php');?>
     <div class="addUsers_container">
         <form method="post" class="addUsers_form">
             <div class="addUsers_titles">
@@ -40,7 +41,7 @@
             </div>
         </form>
         <div>
-            <img src="../assets/badges.png" alt="badges_image">
+            <img class='ImageDeMADELINE' src="../assets/badges.png" alt="badges_image">
         </div>
     </div>
 </body>

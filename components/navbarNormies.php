@@ -4,7 +4,7 @@
 
         <div class="header-left">
 
-            <a href="#" class="logo"><img class='zoom' src="../assets/breakingbadge.png" alt="logo"></a>
+            <a href="#" class="logo"><img class='zoom' src="./assets/breakingbadge.png" alt="logo"></a>
             <div class="navbar_gauche">
                 <?php 
                     // echo 'Welcome ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] 

@@ -2,6 +2,7 @@
   session_start();
 
   include('./components/db.php');
+  include('./components/functions.php');
 ?>
 
 <!DOCTYPE html>
