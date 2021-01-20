@@ -25,7 +25,7 @@ function session_start_once()
     session_start_once();
 
     $cursor = createCursor();
-    $query = $cursor->prepare('SELECT id, password, account_type FROM users WHERE email=?');
+    $query = $cursor->prepare('SELECT id, password, firstname, lastname, account_type FROM users WHERE email=?');
     $query->execute([$email]);
     $results = $query->fetch();
 
@@ -33,6 +33,8 @@ function session_start_once()
       $_SESSION['user_id'] = $results['id'];
       $_SESSION['account_type'] = $results['account_type'];
       $_SESSION['email'] = $email;
+      $_SESSION['firstname'] = $results['firstname'];
+      $_SESSION['lastname'] = $results['lastname'];
 
       return true;
     }
