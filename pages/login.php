@@ -1,5 +1,14 @@
 <?php
-// login("jean@coucou.be", "coucou")
+    include('../components/functions.php');
+
+    if (!empty($_POST["email"])) {
+        if (login($_POST["email"],$_POST["password"])) {
+            // header("location:badg.php");
+        }
+        else{
+            echo 'log not very ok';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +17,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 

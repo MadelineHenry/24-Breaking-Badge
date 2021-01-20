@@ -11,38 +11,55 @@ function session_start_once()
   }
 }
 
-function isAuthenticated()
-{
-  session_start_once();
-  return !empty($_SESSION['user_id']);
-}
-
-function isAdmin()
-{
-  session_start_once();
-  return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
-}
-
-function login($email, $password)
-{
-  session_start_once();
-
-  $cursor = createCursor();
-  $query = $cursor->prepare('SELECT id, password from users WHERE email=?');
-  $query->execute([$email]);
-  $results = $query->fetch();
-
-  // $cursor->closeCursor();
-
-  if (password_verify($password, $results['password'])) {
-    $_SESSION['user_id'] = $results['id'];
-    $_SESSION['account_type'] = $results['account_type'];
-    $_SESSION['email'] = $email;
-
-    return true;
+  function isAuthenticated(){
+    session_start_once();
+    return !empty($_SESSION['user_id']);
   }
-  return false;
-}
+
+  function isAdmin(){
+    session_start_once();
+    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
+  }
+
+  function login($email, $password){
+    session_start_once();
+
+    $cursor = createCursor();
+    $query = $cursor->prepare('SELECT id, password, account_type FROM users WHERE email=?');
+    $query->execute([$email]);
+    $results = $query->fetch();
+
+    if(!empty($results) AND password_verify($password, $results['password'])){
+      $_SESSION['user_id'] = $results['id'];
+      $_SESSION['account_type'] = $results['account_type'];
+      $_SESSION['email'] = $email;
+
+      return true;
+    }
+    return false;
+  }
+
+  function signin(){
+    session_start_once();
+
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $account_type = $_POST['account_type'];
+
+    $db = createCursor();
+    $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
+    $req = $db->prepare($sql);
+    $req->execute();
+    header("location:badg.php");
+  }
+
+  function logout(){
+    session_start_once();
+    session_destroy();
+  }
+
 
 function logout()
 {
