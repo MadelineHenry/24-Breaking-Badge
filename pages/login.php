@@ -1,5 +1,5 @@
 <?php
-    include('../components/functions.php');
+    include('./components/functions.php');
 
     if (!empty($_POST["email"])) {
         if (login($_POST["email"],$_POST["password"])) {

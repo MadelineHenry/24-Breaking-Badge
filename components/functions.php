@@ -52,7 +52,7 @@ function session_start_once()
     $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
     $req = $db->prepare($sql);
     $req->execute();
-    header("location:badg.php");
+    header("location:badges.php");
   }
 
   function logout(){
