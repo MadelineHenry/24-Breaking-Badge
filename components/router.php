@@ -1,20 +1,13 @@
 <?php
+//Jean
   include_once('functions.php');
-
-  $routes = [];
-  $routes['dashboard'] = 'Dashboard';
-  $routes['badges'] = 'All badges';
-  $routes['students'] = 'All students';
-
-  $requestedPage = $_GET['p'];
-
+ 
   if(!isAuthenticated()){
-    // include the login page
+    include('./pages/login.php');
   }
-  if(array_key_exists($requestedPage, $routes)){
-    include_once('navbar.php');
+  else{
+  include_once('badges.php');
 
-    // include the page
   }
-  echo $requestedPage;
+
 ?>
