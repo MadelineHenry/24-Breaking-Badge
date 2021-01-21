@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    ;
+}
 /* Body */
- /* body {
+ body {
     margin: 0;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto; */
+    grid-template-rows: auto 1fr auto;
      /* background-color: red;  */
-/* } */
+}
 
 /* Navbar */
 .header {
@@ -80,6 +87,13 @@
 
 /* Login page*/
 
+.login_page{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    
+}
+
 .login_container {
     width: 50%;
     display: flex;
@@ -128,7 +142,10 @@ h2.BB_title {
     font-size: 15px;
 }
 
-.login_button:hover {}
+.login_button:hover {
+    background-color: rgb(0, 102, 255);
+    color: white;
+}
 
 /* addUsers Page */
 
@@ -228,18 +245,106 @@ h2.users_title{
     justify-content: center;
     align-items: center;
     height: 100px;
+    width: 120px;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 1%;
+}
+.badge_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
     width: 100px;
     border-radius: 50%;
     text-align: center;
+    margin-left: 10px;
+    margin-bottom: 1%; 
 }
 
 .badge_description {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-left: 0.5%;
+    width: 100%;
+    text-align: center;
 }
 
 .allBadges{
     display:flex;
+}
+.tous_les_badges{
+    width: 50%;
+    margin-left: 1%;
+}
+.toute_la_partie_all_badges{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
+}
+.toute_la_partie_my_badges{
+    display: flex;
+    align-items: center;
+}
+
+/* Footer */
+.site-footer{
+    text-align: center;
+}
+.footer {
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4d4d4d;
+    color: black;
+    /* text-align: center; */
+    font-family: 'Bodoni Moda', serif;
+    padding-bottom: 5px;
+    margin-top: 2px;
+}
+.footer>p:nth-child(1) {
+    padding-top: 5px;
+    margin: 0px;
+}
+
+.footer>p:nth-child(2), .footer>p:nth-child(3) {
+    margin: 0px;
+}
+
+.liens{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    margin: 0px;
+}
+
+.no_margin_bottom{
+    margin-bottom: 0px;
+    
+    width: 30%;
+}
+
+.centrage_liens{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.liens_github{
+    width: 40%;
+    margin-right: 1%;
+    margin: 0px;
+}
+
+.liens_footer:hover{
+    color: red;
+}
+
+.copyright_footer{
+    width: 30%;
+    margin: 0px;
 }
