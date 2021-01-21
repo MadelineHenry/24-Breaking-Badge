@@ -172,7 +172,52 @@ function createPercentageBadgesStats()
   return  get_percentage($numberBadges['COUNT(id)'], $numberBadgesJSNewbie['COUNT(name_badge)']);
 }
 
+function getBadgesName() {
+$arrayRecipeDate = [];
+if (!empty($_POST['cleGetBadges'])) {
+  $bdd = createCursor();
+  $requestAllBadges = $bdd->query("SELECT name_badge FROM badges");
 
+  while ($answerOneBadge = $requestAllBadges->fetch()) {
+    $arrayRecipeDate[] = $answerOneBadge['name_badge'];
+  }
+  $jsArray= json_encode($arrayRecipeDate);
+  echo $jsArray;
+}
+}
+
+function deleteOrModifyBadge(){
+  if (!empty($_POST["modify_badge"]) or !empty($_POST["delete_badge"])) {
+    $modifiedNameBadge = $_POST["modif_name"];
+    $modifiedDescriptionBadge = $_POST["modif_description"];
+    $modifiedColorBadge = $_POST["modif_color"];
+    $modifiedBadge = $_POST["badgeToModify"];
+  }
+
+  if (!empty($_POST["modify_badge"])) {
+    $bdd = createCursor();
+    $updateABadge = $bdd->prepare("UPDATE `badges` SET `name_badge`=?,`description_badge`=?,`color_badge`=? WHERE name_badge=?");
+    $updateABadge->execute(array($modifiedNameBadge, $modifiedDescriptionBadge, $modifiedColorBadge, $modifiedBadge));
+  }
+
+  if (!empty($_POST["delete_badge"])) {
+    $bdd = createCursor();
+    $updateABadge = $bdd->prepare("DELETE FROM `badges` WHERE name_badge=?");
+    $updateABadge->execute(array($modifiedBadge));
+  }
+}
+
+function createNewBadge() {
+  if (!empty($_POST["new_badge"])) {
+    $newNameBadge = $_POST["new_name"];
+    $newDescriptionBadge = $_POST["new_description"];
+    $newColorBadge = $_POST["new_color"];
+
+    $bdd = createCursor();
+    $createABadge = $bdd->prepare("INSERT INTO `badges`(`name_badge`, `description_badge`, `color_badge`) VALUES (?,?,?)");
+    $createABadge->execute(array($newNameBadge, $newDescriptionBadge, $newColorBadge));
+  }
+}
 
 //END JEAN
 
