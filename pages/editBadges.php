@@ -5,24 +5,24 @@
         <div class="modify_delete">
             <form class="formulaire_modification" method="post">
 
-                <h2>Modify or delete an existent badge</h2>
+                <h2 class="title_formulaire">Modify or delete an existent badge</h2>
 
                 <p><label class="label_modify">Select a badge</label></p>
 
                 <p><select class="select_badge" name="badge" id=""></select></p>
 
-                <p><label class="label_modify">Modify the name of the badge :</label></p>
+                <p><label class="label_modify">Name of the badge :</label></p>
 
-                <p><input class="modify_name" type="text" name="modif_name" required></p>
+                <p><input class="modify_name" type="text" name="modif_name" placeholder="Modify the name..." required></p>
 
-                <p><label class="label_modify">Modify the description of the badge :</label></p>
+                <p><label class="label_modify">Description of the badge :</label></p>
 
-                <p><textarea class="description" type="text" id='textarea' name="modif_description" required></textarea>
+                <p><textarea class="description" type="text" id='textarea' name="modif_description" placeholder="Modify the description..."required></textarea>
                 </p>
 
-                <p><label class="label_modify">Modify the color of the badge :</label></p>
+                <p><label class="label_modify">Color of the badge :</label></p>
 
-                <p><input class="modify_color" type="text" name="modif_color" required></p>
+                <p><input class="modify_color" type="text" name="modif_color" placeholder="Modify the color..."required></p>
 
                 <!-- <td class="boutons_modif_delete"> -->
 
@@ -35,9 +35,9 @@
             </form>
         </div>
         <div class="create_new_badge">
-            <form class="formulaire_modification" method="post">
+            <form class="formulaire_creation" method="post">
 
-                <h2>Create a new badge</h2>
+                <h2 class="title_formulaire">Create a new badge</h2>
 
                 <p><label class="label_create">Name of the badge :</label></p>
 
@@ -54,7 +54,7 @@
 
                 <!-- <td class="boutons_modif_delete"> -->
 
-                <p class="boutons_create">
+                <p class="ensemble_bouton_create">
                     <input class='bouton_create' type="submit" id="modify_badge" value="Create" />
                     
                 </p>
