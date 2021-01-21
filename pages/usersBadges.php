@@ -4,6 +4,7 @@
 
 
 <body>
+    <?php include_once('./components/navbarAdmin.php'); ?>
     <div class="usersList_container">
         <div class="usersList_title">
             <h2 class="users_title">Users list</h2>
