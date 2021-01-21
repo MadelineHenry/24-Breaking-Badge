@@ -8,7 +8,17 @@
         <div class="usersList_container">
             <div class="usersList_title">
                 <h2 class="users_title">Users list</h2>
-            </div>     
+            </div>   
+            <table>
+                <td>
+                    <tr>First Name</tr>
+                    <tr>Last Name</tr>
+                    <tr>Badges</tr>
+                </td>
+                <td>
+                    <tr></tr>
+                </td>
+            </table>  
         </div>
       
         <div class="badges_container">
