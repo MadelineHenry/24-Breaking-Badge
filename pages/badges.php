@@ -31,7 +31,7 @@ if ($_SESSION['account_type'] === 'ADMIN') {
     <div class="badgesRightSide">
         <?php
         if (isAdmin()) { ?>
-            <button>Edit Badges</button>
+            <button> <a href="./index.php?page=editBadges"> Edit Badges </a></button>
         <?php
         }
         ?>

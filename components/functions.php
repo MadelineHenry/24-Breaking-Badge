@@ -11,31 +11,30 @@ function session_start_once()
   }
 }
 
-function isAuthenticated()
-{
-  session_start_once();
-  return !empty($_SESSION['user_id']);
-}
+  function isAuthenticated(){
+    session_start_once();
+    return !empty($_SESSION['user_id']);
+  }
 
-function isAdmin()
-{
-  session_start_once();
-  return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
-}
+  function isAdmin(){
+    session_start_once();
+    return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
+  }
 
-function login($email, $password)
-{
-  session_start_once();
+  function login($email, $password){
+    session_start_once();
 
-  $cursor = createCursor();
-  $query = $cursor->prepare('SELECT id, password, account_type FROM users WHERE email=?');
-  $query->execute([$email]);
-  $results = $query->fetch();
+    $cursor = createCursor();
+    $query = $cursor->prepare('SELECT id, password, firstname, lastname, account_type FROM users WHERE email=?');
+    $query->execute([$email]);
+    $results = $query->fetch();
 
-  if (!empty($results) and password_verify($password, $results['password'])) {
-    $_SESSION['user_id'] = $results['id'];
-    $_SESSION['account_type'] = $results['account_type'];
-    $_SESSION['email'] = $email;
+    if(!empty($results) AND password_verify($password, $results['password'])){
+      $_SESSION['user_id'] = $results['id'];
+      $_SESSION['account_type'] = $results['account_type'];
+      $_SESSION['email'] = $email;
+      $_SESSION['firstname'] = $results['firstname'];
+      $_SESSION['lastname'] = $results['lastname'];
     //JEAN
     $_SESSION['numberUsers'] =
       $results['COUNT(id)'];
