@@ -2,13 +2,12 @@
 // login("jean@coucou.be", "coucou")
 ?>
 
-<body>
     <div class="usersBadges_container">
         <div class="usersList_container">
             <div class="usersList_title">
                 <h2 class="users_title">Users list</h2>
             </div>   
-            <table>
+            <table class="users_table">
                 <td>
                     <tr>First Name</tr>
                     <tr>Last Name</tr>
@@ -38,11 +37,11 @@
                 </div>
             </div> 
             <div class="badges_buttons">
-                <div class="+">
-                    <button type="" alt="" class="+_button">+</button>
+                <div class="add">
+                    <button type="" alt="" class="add_button">+</button>
                 </div>
-                <div class="-">
-                    <button type="" alt="" class="-_button">-</button>
+                <div class="less">
+                    <button type="" alt="" class="less_button">-</button>
                 </div>
             </div>
         </div>

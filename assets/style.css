@@ -194,7 +194,6 @@ h2.addUsers_title_form {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: red;
 }
 
 h2.users_title{
@@ -210,7 +209,7 @@ h2.users_title{
 }
 
 .users_table{
-
+    border-collapse: collapse;
 }
 
 .users_menu, .badges_menu{
@@ -221,6 +220,10 @@ h2.users_title{
 .badges_buttons{
     display: flex;
     flex-direction: row;
+}
+
+.less_buttons, .add_buttons{
+    margin: 10px;
 }
 
 /* Badges */
