@@ -7,7 +7,7 @@
             <a href="#" class="logo"><img class='zoom' src="./assets/breakingbadge.png" alt="logo"></a>
             <div class="navbar_gauche">
                 <?php 
-                    echo 'Welcome ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] 
+                    echo 'Welcome ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname']
                 ?>
             </div>
 
