@@ -87,6 +87,13 @@
 
 /* Login page*/
 
+.login_page{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    
+}
+
 .login_container {
     width: 50%;
     display: flex;
