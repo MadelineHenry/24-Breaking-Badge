@@ -208,6 +208,10 @@ h2.users_title{
     flex-direction: column;
 }
 
+.users_table{
+
+}
+
 .users_menu, .badges_menu{
     display: flex;
     flex-direction: column;
@@ -216,6 +220,7 @@ h2.users_title{
 .badges_buttons{
     display: flex;
     flex-direction: row;
+}
 
 /* Badges */
 .badge {
