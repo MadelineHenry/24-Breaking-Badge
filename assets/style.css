@@ -216,7 +216,8 @@ h2.addUsers_title_form {
 }
 
 .badgesStats{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 400px;
     width:400px;
+    font-style: italic;
 }

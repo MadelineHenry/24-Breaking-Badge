@@ -36,6 +36,9 @@ function login($email, $password)
     $_SESSION['user_id'] = $results['id'];
     $_SESSION['account_type'] = $results['account_type'];
     $_SESSION['email'] = $email;
+    //JEAN
+    $_SESSION['numberUsers'] =
+      $results['COUNT(id)'];
 
     return true;
   }
@@ -106,15 +109,71 @@ function getUserBadges()
   }
 }
 
-function createBadgesStats()
+function get_percentage($total, $number)
+{
+  if ($total > 0) {
+    return round(100 * ($number / $total), 2);
+  } else {
+    return 0;
+  }
+}
+
+function statsData()
+{
+  $cursor = createCursor();
+  $query = $cursor->query('SELECT COUNT(id) FROM users');
+  $results = $query->fetch();
+  $_SESSION['numberUsers'] =
+    $results['COUNT(id)'];
+
+  $getNumberBadgesOfUser = $cursor->prepare('SELECT COUNT(fk_id_users) FROM users_has_badges WHERE fk_id_users=?');
+  $getNumberBadgesOfUser->execute(array($_SESSION['user_id']));
+  $numberBadgesOfUser = $getNumberBadgesOfUser->fetch();
+  $_SESSION['numberBadgesOfUser'] = $numberBadgesOfUser['COUNT(fk_id_users)'];
+}
+
+function peopleHasMoreBadges()
+{
+  $cursor = createCursor();
+  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users on users_has_badges.fk_id_users=users.id GROUP BY fk_id_users HAVING COUNT(fk_id_badge) >?');
+  $query->execute(array($_SESSION['numberBadgesOfUser']));
+
+  while ($results = $query->fetch()) {
+    ob_start(); ?>
+    <div>
+      <p><?= $results['firstname'] ?> has <?= $results['COUNT(fk_id_badge)'] ?> badge(s) </p>
+    </div>
+<?php
+    $content = ob_get_clean();
+    echo $content;
+  };
+}
+
+function whoHasMoreBadges()
+{
+  $cursor = createCursor();
+  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users on users_has_badges.fk_id_users=users.id GROUP BY fk_id_users HAVING COUNT(fk_id_badge) >?');
+  $query->execute(array($_SESSION['numberBadgesOfUser']));
+  $numberPeopleHasMoreBadges=0;
+  while ($results = $query->fetch()) {
+    $numberPeopleHasMoreBadges++;
+  };
+  return  $numberPeopleHasMoreBadges;
+}
+
+function createPercentageBadgesStats()
 {
   $bdd = createCursor();
-  $requestNumberBadges = $bdd->query("SELECT COUNT(name_badge) FROM badges");
+  $requestNumberBadges = $bdd->query("SELECT COUNT(id) FROM users");
   $numberBadges = $requestNumberBadges->fetch();
 
-  $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM badges WHERE");
-  $numberBadges = $requestNumberBadges->fetch();
+  $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM users_has_badges INNER JOIN badges ON users_has_badges.fk_id_badge = badges.id_badge WHERE name_badge='JS newbie'");
+  $numberBadgesJSNewbie = $requestNumberBadgesPro->fetch();
+
+  return  get_percentage($numberBadges['COUNT(id)'], $numberBadgesJSNewbie['COUNT(name_badge)']);
 }
+
+
 
 //END JEAN
 

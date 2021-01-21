@@ -3,6 +3,8 @@
 // include("../components/functions.php");
 //END JEAN
 // session_start();
+statsData();
+
 if ($_SESSION['account_type'] === 'ADMIN') {
 
     include_once('./components/navbarAdmin.php');
@@ -17,6 +19,7 @@ if ($_SESSION['account_type'] === 'ADMIN') {
         <?php
         if (!isAdmin()) { ?>
             <h2>My Badges</h2>
+            <h>You have currently <?= $_SESSION['numberBadgesOfUser'] ?> badges</h>
             <div class=badgesOneUser style="display: flex;"><?= getUserBadges(); ?></div>
         <?php
         }
@@ -32,7 +35,24 @@ if ($_SESSION['account_type'] === 'ADMIN') {
         <?php
         }
         ?>
-        <div class="badgesStats"></div>
+        <h2>Some statistics</h2>
+        <div class="badgesStats">
+            <!-- <button id="newbie">JS NEWBIE</button> -->
+            <!-- <form action="../index.php" method="POST">
+                <input type="submit" name="newbie" value="JS NEWBIE"></input>
+                <input type="submit" name="intermediate" value="JS Intermediate"></input>
+                <input type="submit" name="pro" value="JS PRO"></input>
+            </form> -->
+            <h3>There are <?= $_SESSION['numberUsers'] ?> users</h3>
+            <h3> <?= createPercentageBadgesStats() ?>% of users have the badge 'JS Newbie'</h3>
+            <h3> <?= whoHasMoreBadges() ?> users or <?= get_percentage($_SESSION['numberUsers'], whoHasMoreBadges()) ?>% of them have more badges than you. Indeed:</h3>
+            <?= peopleHasMoreBadges() ?>
+        </div>
     </div>
 </div>
+
+<!-- <script>
+    let statsDiv = document.querySelector(".badgesStats")
+    
+</script> -->
 <!-- //END JEAN -->
