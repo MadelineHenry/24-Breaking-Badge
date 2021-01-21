@@ -2,7 +2,6 @@
 // login("jean@coucou.be", "coucou")
 ?>
 
-
 <body>
     <div class="usersBadges_container">
         <div class="usersList_container">
