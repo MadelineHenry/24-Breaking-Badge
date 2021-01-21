@@ -201,9 +201,22 @@ h2.addUsers_title_form {
     justify-content: center;
     align-items: center;
     height: 100px;
+    width: 120px;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 1%;
+}
+.badge_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
     width: 100px;
     border-radius: 50%;
     text-align: center;
+    margin-left: 10px;
+    margin-bottom: 1%; 
 }
 
 .badge_description {
@@ -211,12 +224,15 @@ h2.addUsers_title_form {
     justify-content: center;
     align-items: center;
     margin-left: 0.5%;
+    width: 100%;
+    text-align: center;
 }
 
 .allBadges{
     display:flex;
 }
 .tous_les_badges{
+    width: 50%;
     margin-left: 1%;
 }
 .toute_la_partie_all_badges{
@@ -230,14 +246,17 @@ h2.addUsers_title_form {
 }
 
 /* Footer */
+.site-footer{
+    text-align: center;
+}
 .footer {
 
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #4d4d4d;
+    background-color: rgb(128, 122, 122);
     color: black;
-    text-align: center;
+    /* text-align: center; */
     font-family: 'Bodoni Moda', serif;
     padding-bottom: 5px;
     margin-top: 2px;
@@ -251,3 +270,37 @@ h2.addUsers_title_form {
     margin: 0px;
 }
 
+.liens{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    margin: 0px;
+}
+
+.no_margin_bottom{
+    margin-bottom: 0px;
+    
+    width: 30%;
+}
+
+.centrage_liens{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.liens_github{
+    width: 40%;
+    margin-right: 1%;
+    margin: 0px;
+}
+
+.liens_footer:hover{
+    color: red;
+}
+
+.copyright_footer{
+    width: 30%;
+    margin: 0px;
+}
