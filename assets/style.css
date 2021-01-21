@@ -194,7 +194,10 @@ h2.addUsers_title_form {
     font-size: 15px;
 }
 
-.addUser_button:hover {}
+.addUser_button:hover {
+    background-color: rgb(0, 102, 255);
+    color: white;
+}
 
 .ImageDeMADELINE {
     width: 350px;
@@ -338,6 +341,69 @@ h2.users_title{
     display: flex;
     align-items: center;
 }
+
+/* Edit page */
+
+.all_the_edit_page{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Partie modify delete */
+.modify_delete{
+    
+        width: 35%;
+        /* margin: 0 auto; */
+        /* margin-top: 10%; */
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+    
+}
+.label_modify{
+    font-weight: bold;
+}
+.boutons_modif_delete{
+    display: flex;
+    justify-content: space-around;
+}
+.formulaire_modification{
+    /* margin: 40px; */
+    margin-top: 5%;
+    padding: 30px;
+    border: 1px solid black;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    width: 100%;
+}
+.modify_color, .description , .select_badge, .modify_name{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.bouton_modify, .bouton_delete{
+    background-color: #ddd;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 35%;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Partie create a new badge */
+.create_new_badge{
+    width: 35%;
+}
+
 
 /* Footer */
 .site-footer{
