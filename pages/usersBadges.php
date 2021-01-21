@@ -1,23 +1,28 @@
-<?php
-// login("jean@coucou.be", "coucou")
-?>
-
-<body>
-    <?php include_once('./components/navbarAdmin.php'); ?>
     <div class="usersBadges_container">
         <div class="usersList_container">
             <div class="usersList_title">
                 <h2 class="users_title">Users list</h2>
             </div>   
-            <table>
-                <td>
-                    <tr>First Name</tr>
-                    <tr>Last Name</tr>
-                    <tr>Badges</tr>
-                </td>
-                <td>
-                    <tr></tr>
-                </td>
+            <table class="users_table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Badges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucie</td>
+                        <td>Mariani</td>
+                        <td>lucieli@hotmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Lucie</td>
+                        <td>Mariani</td>
+                        <td>lucieli@hotmail.com</td>
+                    </tr>
+                </tbody>
             </table>  
         </div>
       
@@ -40,11 +45,11 @@
                 </div>
             </div> 
             <div class="badges_buttons">
-                <div class="+">
-                    <button type="" alt="" class="+_button">+</button>
+                <div class="add">
+                    <button type="" alt="" class="add_button">+</button>
                 </div>
-                <div class="-">
-                    <button type="" alt="" class="-_button">-</button>
+                <div class="less">
+                    <button type="" alt="" class="less_button">-</button>
                 </div>
             </div>
         </div>
