@@ -256,7 +256,6 @@ h2.users_title{
     border-radius: 4px;
 }
 
-
 .users_menu, .badges_menu{
     display: flex;
     flex-direction: column;
@@ -269,7 +268,6 @@ h2.users_title{
 .badges_menu{
     margin: 10px 10px 10px 0;
 }
-
 
 .badges_buttons{
     display: flex;
@@ -297,6 +295,7 @@ h2.users_title{
     margin-left: 10px;
     margin-bottom: 1%;
 }
+
 .badge_user{
     display: flex;
     justify-content: center;
