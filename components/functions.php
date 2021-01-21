@@ -11,54 +11,62 @@ function session_start_once()
   }
 }
 
-  function isAuthenticated(){
-    session_start_once();
-    return !empty($_SESSION['user_id']);
+function isAuthenticated()
+{
+  session_start_once();
+  return !empty($_SESSION['user_id']);
+}
+
+function isAdmin()
+{
+  session_start_once();
+  return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
+}
+
+function login($email, $password)
+{
+  session_start_once();
+
+  $cursor = createCursor();
+  $query = $cursor->prepare('SELECT id, password, account_type FROM users WHERE email=?');
+  $query->execute([$email]);
+  $results = $query->fetch();
+
+  if (!empty($results) and password_verify($password, $results['password'])) {
+    $_SESSION['user_id'] = $results['id'];
+    $_SESSION['account_type'] = $results['account_type'];
+    $_SESSION['email'] = $email;
+    //JEAN
+    $_SESSION['numberUsers'] =
+      $results['COUNT(id)'];
+
+    return true;
   }
+  return false;
+}
 
-  function isAdmin(){
-    session_start_once();
-    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
-  }
+function signin()
+{
+  session_start_once();
 
-  function login($email, $password){
-    session_start_once();
+  $firstname = $_POST['firstname'];
+  $lastname = $_POST['lastname'];
+  $email = $_POST['email'];
+  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $account_type = $_POST['account_type'];
 
-    $cursor = createCursor();
-    $query = $cursor->prepare('SELECT id, password, account_type FROM users WHERE email=?');
-    $query->execute([$email]);
-    $results = $query->fetch();
+  $db = createCursor();
+  $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
+  $req = $db->prepare($sql);
+  $req->execute();
+  header("location:badges.php");
+}
 
-    if(!empty($results) AND password_verify($password, $results['password'])){
-      $_SESSION['user_id'] = $results['id'];
-      $_SESSION['account_type'] = $results['account_type'];
-      $_SESSION['email'] = $email;
-
-      return true;
-    }
-    return false;
-  }
-
-  function signin(){
-    session_start_once();
-
-    $firstname = $_POST['firstName'];
-    $lastname = $_POST['lastName'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $account_type = $_POST['accountType'];
-
-    $db = createCursor();
-    $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
-    $req = $db->prepare($sql);
-    $req->execute();
-    echo "add ok";
-  }
-
-  function logout(){
-    session_start_once();
-    session_destroy();
-  }
+function logout()
+{
+  session_start_once();
+  session_destroy();
+}
 
 //JEAN
 function getBadges()
@@ -76,8 +84,8 @@ function getBadges()
         <?= $answerOneBadge['description_badge'] ?>
       </div>
     </div>
-<?php $content = ob_get_clean();
-echo $content;
+  <?php $content = ob_get_clean();
+    echo $content;
   };
 }
 
@@ -88,18 +96,85 @@ function getUserBadges()
   INNER JOIN users ON users_has_badges.fk_id_users=users.id 
   INNER JOIN badges ON users_has_badges.fk_id_badge =  badges.id_badge
   WHERE id=?");
-  $requestBadgesUser ->execute(array($_SESSION['user_id']));
- 
+  $requestBadgesUser->execute(array($_SESSION['user_id']));
 
-  while ($answerOneBadge = $requestBadgesUser->fetch()) {ob_start(); ?>
-      <div class='badge_user' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
-        <?= $answerOneBadge['name_badge'] ?>
-      </div>
-    <?php
-      $content = ob_get_clean();
-      echo $content;
+  while ($answerOneBadge = $requestBadgesUser->fetch()) {
+    ob_start(); ?>
+    <div class='badge_user' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
+      <?= $answerOneBadge['name_badge'] ?>
+    </div>
+  <?php
+    $content = ob_get_clean();
+    echo $content;
   }
 }
+
+function get_percentage($total, $number)
+{
+  if ($total > 0) {
+    return round(100 * ($number / $total), 2);
+  } else {
+    return 0;
+  }
+}
+
+function statsData()
+{
+  $cursor = createCursor();
+  $query = $cursor->query('SELECT COUNT(id) FROM users');
+  $results = $query->fetch();
+  $_SESSION['numberUsers'] =
+    $results['COUNT(id)'];
+
+  $getNumberBadgesOfUser = $cursor->prepare('SELECT COUNT(fk_id_users) FROM users_has_badges WHERE fk_id_users=?');
+  $getNumberBadgesOfUser->execute(array($_SESSION['user_id']));
+  $numberBadgesOfUser = $getNumberBadgesOfUser->fetch();
+  $_SESSION['numberBadgesOfUser'] = $numberBadgesOfUser['COUNT(fk_id_users)'];
+}
+
+function peopleHasMoreBadges()
+{
+  $cursor = createCursor();
+  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users on users_has_badges.fk_id_users=users.id GROUP BY fk_id_users HAVING COUNT(fk_id_badge) >?');
+  $query->execute(array($_SESSION['numberBadgesOfUser']));
+
+  while ($results = $query->fetch()) {
+    ob_start(); ?>
+    <div>
+      <p><?= $results['firstname'] ?> has <?= $results['COUNT(fk_id_badge)'] ?> badge(s) </p>
+    </div>
+<?php
+    $content = ob_get_clean();
+    echo $content;
+  };
+}
+
+function whoHasMoreBadges()
+{
+  $cursor = createCursor();
+  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users on users_has_badges.fk_id_users=users.id GROUP BY fk_id_users HAVING COUNT(fk_id_badge) >?');
+  $query->execute(array($_SESSION['numberBadgesOfUser']));
+  $numberPeopleHasMoreBadges=0;
+  while ($results = $query->fetch()) {
+    $numberPeopleHasMoreBadges++;
+  };
+  return  $numberPeopleHasMoreBadges;
+}
+
+function createPercentageBadgesStats()
+{
+  $bdd = createCursor();
+  $requestNumberBadges = $bdd->query("SELECT COUNT(id) FROM users");
+  $numberBadges = $requestNumberBadges->fetch();
+
+  $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM users_has_badges INNER JOIN badges ON users_has_badges.fk_id_badge = badges.id_badge WHERE name_badge='JS newbie'");
+  $numberBadgesJSNewbie = $requestNumberBadgesPro->fetch();
+
+  return  get_percentage($numberBadges['COUNT(id)'], $numberBadgesJSNewbie['COUNT(name_badge)']);
+}
+
+
+
 //END JEAN
 
 
