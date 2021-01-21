@@ -25,6 +25,7 @@
                 </tbody>
             </table>  
         </div>
+      
         <div class="badges_container">
             <div class="addUser_button">
                 <a class="addUser_link" href="./addUsers.php">Add User</a>

@@ -42,17 +42,17 @@ function session_start_once()
   function signin(){
     session_start_once();
 
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $firstname = $_POST['firstName'];
+    $lastname = $_POST['lastName'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $account_type = $_POST['account_type'];
+    $account_type = $_POST['accountType'];
 
     $db = createCursor();
     $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
     $req = $db->prepare($sql);
     $req->execute();
-    header("location:badges.php");
+    echo "add ok";
   }
 
   function logout(){
@@ -92,7 +92,7 @@ function getUserBadges()
  
 
   while ($answerOneBadge = $requestBadgesUser->fetch()) {ob_start(); ?>
-      <div class='badge' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
+      <div class='badge_user' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
         <?= $answerOneBadge['name_badge'] ?>
       </div>
     <?php
