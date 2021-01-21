@@ -1,3 +1,4 @@
+<?php include_once('./components/navbarAdmin.php'); ?>    
     <div class="usersBadges_container">
         <div class="usersList_container">
             <div class="usersList_title">
@@ -27,8 +28,8 @@
         </div>
       
         <div class="badges_container">
-            <div class="addUser_button">
-                <a class="addUser_link" href="./addUsers.php">Add User</a>
+            <div>
+                <a class="addUser_link" href="./index.php?page=addUsers">Add User</a>
             </div>
             <div class="badges_menus">
                 <div class="users_menu">
