@@ -1,38 +1,56 @@
-<?php
-// login("jean@coucou.be", "coucou")
-?>
-
-
-<body>
-    <div class="usersList_container">
-        <div class="usersList_title">
-            <h2 class="users_title">Users list</h2>
-        </div>     
-    </div>
-    <div class="badges_container">
-        <div class="addUser_button">
-            <a class="addUser_link" href="./addUsers.php">Add User</a>
+    <div class="usersBadges_container">
+        <div class="usersList_container">
+            <div class="usersList_title">
+                <h2 class="users_title">Users list</h2>
+            </div>   
+            <table class="users_table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Badges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucie</td>
+                        <td>Mariani</td>
+                        <td>lucieli@hotmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Lucie</td>
+                        <td>Mariani</td>
+                        <td>lucieli@hotmail.com</td>
+                    </tr>
+                </tbody>
+            </table>  
         </div>
-        <div class="badges_menus">
-            <div class="users_menu">
-                <label for="">Choise the user</label>
-                <select name="user" id="user_select">
-                    <option value=""></option>
-                </select>
+      
+        <div class="badges_container">
+            <div class="addUser_button">
+                <a class="addUser_link" href="./addUsers.php">Add User</a>
             </div>
-            <div class="badges_menu">
-                <label for="">Choise the badge</label>
-                <select name="badge" id="badge_select">
-                    <option value=""></option>
-                </select>
-            </div>
-        </div> 
-        <div class="badges_buttons">
-            <div class="+">
-                <button type="" alt="" class="+_button"></button>
-            </div>
-            <div class="-">
-                <button type="" alt="" class="-_button"></button>
+            <div class="badges_menus">
+                <div class="users_menu">
+                    <label for="">Choise the user</label>
+                    <select name="user" id="user_select">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="badges_menu">
+                    <label for="">Choise the badge</label>
+                    <select name="badge" id="badge_select">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div> 
+            <div class="badges_buttons">
+                <div class="add">
+                    <button type="" alt="" class="add_button">+</button>
+                </div>
+                <div class="less">
+                    <button type="" alt="" class="less_button">-</button>
+                </div>
             </div>
         </div>
     </div>

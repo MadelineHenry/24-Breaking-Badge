@@ -5,9 +5,9 @@
 ## Project infos 
 
 - **Type of challenge**: consolidation
-- **Duration**: 3 days
+- **Duration**: 4 days
 - **Team challenge**: team of 4
-- **Deadline**: 21/01/2021 19:00
+- **Deadline**: 22/01/2021 19:00
 
 ## What is this project about :grey_question:
 
@@ -30,7 +30,7 @@ What you need to get started ...
 - basics in **DataBase**
 - Top work mates or a good ability to do internet research on your own :muscle: 
 
-## What did I used ?
+## What did we use ?
 
 - Tag Html
 - Script Css

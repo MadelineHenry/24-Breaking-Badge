@@ -100,7 +100,7 @@ function getUserBadges()
 
   while ($answerOneBadge = $requestBadgesUser->fetch()) {
     ob_start(); ?>
-    <div class='badge' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
+    <div class='badge_user' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
       <?= $answerOneBadge['name_badge'] ?>
     </div>
   <?php

@@ -51,8 +51,4 @@ if ($_SESSION['account_type'] === 'ADMIN') {
     </div>
 </div>
 
-<!-- <script>
-    let statsDiv = document.querySelector(".badgesStats")
-    
-</script> -->
 <!-- //END JEAN -->
