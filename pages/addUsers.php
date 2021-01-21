@@ -1,5 +1,9 @@
 <?php
-// login("jean@coucou.be", "coucou")
+
+    if (isset($_POST['submit'])) {
+        signin($_POST["firstName"],$_POST["lastName"],$_POST["email"],$_POST["password"],$_POST["accountType"]);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +41,7 @@
                 <input for="accountType" type="accountType" name="accountType" placeholder="Account Type" class="addAccountType_input"></input>
             </div>
             <div class="submit_input">
-                <button type="submit" class="addUser_button">Submit</button>
+                <button type="submit" name="submit" class="addUser_button">Submit</button>
             </div>
         </form>
         <div>
