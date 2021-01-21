@@ -189,6 +189,11 @@ h2.addUsers_title_form {
 }
 
 /* Badges */
+.badgesPage{
+    display: flex;
+    flex-direction: row;
+}
+
 .badge {
     display: flex;
     justify-content: center;
@@ -208,5 +213,10 @@ h2.addUsers_title_form {
 
 .allBadges{
     display:flex;
-    
+}
+
+.badgesStats{
+    border: 1px solid black;
+    height: 400px;
+    width:400px;
 }

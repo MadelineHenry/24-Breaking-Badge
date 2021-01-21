@@ -11,15 +11,28 @@ if ($_SESSION['account_type'] === 'ADMIN') {
     include("./components/navbarNormies.php");
 }
 
-if ($_SESSION['account_type'] === 'NORMIE') {?>
-    <h2>My Badges</h2>
-    <div class=badgesOneUser style="display: flex;"><?= getUserBadges(); ?></div>
-
-<?php
-
-}
-
 ?>
-<h2>All Badges</h2>
-<div><?= getBadges(); ?> </div>
+<div class="badgesPage">
+    <div class="badgesLeftSide">
+        <?php
+        if (!isAdmin()) { ?>
+            <h2>My Badges</h2>
+            <div class=badgesOneUser style="display: flex;"><?= getUserBadges(); ?></div>
+        <?php
+        }
+        ?>
+
+        <h2>All Badges</h2>
+        <div><?= getBadges(); ?> </div>
+    </div>
+    <div class="badgesRightSide">
+        <?php
+        if (isAdmin()) { ?>
+            <button>Edit Badges</button>
+        <?php
+        }
+        ?>
+        <div class="badgesStats"></div>
+    </div>
+</div>
 <!-- //END JEAN -->
