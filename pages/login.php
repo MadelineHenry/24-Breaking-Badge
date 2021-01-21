@@ -10,7 +10,7 @@
         }
     }
 ?>
-
+<div class="login_page">
     <div class="login_container">
         <form method="post" class="login_form">
             <div class="login_titles">
@@ -28,3 +28,4 @@
             </div>
         </form>
     </div>
+</div>

@@ -12,14 +12,21 @@ if ($_SESSION['account_type'] === 'ADMIN') {
 }
 
 if ($_SESSION['account_type'] === 'NORMIE') {?>
-    <h2>My Badges</h2>
-    <div class=badgesOneUser style="display: flex;"><?= getUserBadges(); ?></div>
-
+<div class="toute_la_partie_my_badges">
+    <div class="tous_les_badges">
+        <h2>My Badges</h2>
+        <div class=badgesOneUser style="display: flex;"><?= getUserBadges(); ?></div>
+    </div>
+</div>
 <?php
 
 }
 
 ?>
-<h2>All Badges</h2>
-<div><?= getBadges(); ?> </div>
+<div class="toute_la_partie_all_badges">
+    <div class="tous_les_badges">
+        <h2>All Badges</h2>
+        <div><?= getBadges(); ?> </div>
+    </div>
+</div>
 <!-- //END JEAN -->
