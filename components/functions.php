@@ -18,7 +18,7 @@ function session_start_once()
 
   function isAdmin(){
     session_start_once();
-    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
+    return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
   }
 
   function login($email, $password){
