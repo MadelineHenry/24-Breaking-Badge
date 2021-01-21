@@ -281,6 +281,11 @@ h2.users_title{
 }
 
 /* Badges */
+.badgesPage{
+    display: flex;
+    flex-direction: row;
+}
+
 .badge {
     display: flex;
     justify-content: center;
@@ -316,6 +321,11 @@ h2.users_title{
 .allBadges{
     display:flex;
 }
+
+.badgesStats{
+    font-style: italic;
+}
+
 .tous_les_badges{
     width: 50%;
     margin-left: 1%;
