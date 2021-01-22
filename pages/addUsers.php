@@ -1,7 +1,9 @@
 <?php
 
-    if (isset($_POST['submit'])) {
-        signin($_POST["firstName"],$_POST["lastName"],$_POST["email"],$_POST["password"],$_POST["accountType"]);
+    if (isset($_POST['submit']) && !empty($_POST["lastName"]) && !empty($_POST["email"]) &&!empty($_POST["password"]) && !empty($_POST["accountType"])) {
+        if (!empty($_POST["firstname"])) {
+            signin($_POST["firstName"],$_POST["lastName"],$_POST["email"],$_POST["password"],$_POST["accountType"]);
+        }
     }
 
 ?>

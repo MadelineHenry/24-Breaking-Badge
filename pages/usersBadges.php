@@ -20,12 +20,21 @@
                 <thead>
                     <tr>
                         <th>First Name</th>
-                        <th>Last Name</th>
                         <th>Badges</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?= getAllUserNames() ?>
+                    <?php foreach (getAllUserNames() as $badgeOfUser){?>
+<tr>
+        <td>
+            <?= $badgeOfUser['firstname'] ?>
+        </td> 
+        <td>
+            <?= $badgeOfUser['GROUP_CONCAT( name_badge )'] ?>
+        </td> 
+    </tr>   
+      
+                   <?php } ?>
                     
                 </tbody>
             </table>

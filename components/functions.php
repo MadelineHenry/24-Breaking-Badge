@@ -35,8 +35,7 @@ function session_start_once()
       $_SESSION['email'] = $email;
       $_SESSION['firstname'] = $results['firstname'];
       $_SESSION['lastname'] = $results['lastname'];
-    //JEAN
-    $_SESSION['numberUsers'] =
+      $_SESSION['numberUsers'] =
       $results['COUNT(id)'];
 
     return true;
@@ -44,21 +43,17 @@ function session_start_once()
   return false;
 }
 
-function signin()
+function signin($firstname,$lastname,$email,$password,$account_type)
 {
   session_start_once();
 
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-  $email = $_POST['email'];
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $account_type = $_POST['account_type'];
+  $password = password_hash($password, PASSWORD_DEFAULT);
+
 
   $db = createCursor();
   $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
   $req = $db->prepare($sql);
   $req->execute();
-  header("location:badges.php");
 }
 
 function logout()
@@ -212,25 +207,9 @@ function getAllUserNames(){
   $bdd = createCursor();
   $requestAllUserNames = $bdd->query("SELECT firstname, GROUP_CONCAT( name_badge ) FROM users_has_badges INNER JOIN users ON users.id = users_has_badges.fk_id_users INNER JOIN badges ON badges.id_badge = users_has_badges.fk_id_badge GROUP BY firstname");
 
-  while ($answerOneUserName = $requestAllUserNames->fetch()) {
-    ob_start(); ?>
-    <tr>
-        <td>
-            <?= $answerOneUserName['firstname'] ?>
-        </td> 
-        <td>
-            <?= $answerOneUserName['lastname'] ?>
-        </td> 
-        <td>
-            <?= $answerOneUserName['name_badge'] ?>
-        </td> 
-    </tr>   
-      
-  <?php $content = ob_get_clean();
-    echo $content;
-  };
+  $answerOneUserName = $requestAllUserNames->fetchAll();
+ return $answerOneUserName;
 }
-
 
 
 function getUsers()
