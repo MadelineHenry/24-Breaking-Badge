@@ -1,8 +1,9 @@
+<?php include_once('./components/navbarAdmin.php'); ?>    
     <div class="usersBadges_container">
         <div class="usersList_container">
             <div class="usersList_title">
                 <h2 class="users_title">Users list</h2>
-            </div>   
+            </div>
             <table class="users_table">
                 <thead>
                     <tr>
@@ -23,12 +24,12 @@
                         <td>lucieli@hotmail.com</td>
                     </tr>
                 </tbody>
-            </table>  
+            </table>
         </div>
-      
+
         <div class="badges_container">
             <div>
-                <a class="addUser_link" href="./addUsers.php">Add User</a>
+                <a class="addUser_link" href="./index.php?page=addUsers">Add User</a>
             </div>
             <div class="badges_menus">
                 <div class="users_menu">
@@ -43,7 +44,7 @@
                         <option value=""></option>
                     </select>
                 </div>
-            </div> 
+            </div>
             <div class="badges_buttons">
                 <div class="add">
                     <button type="" alt="" class="add_button">+</button>
