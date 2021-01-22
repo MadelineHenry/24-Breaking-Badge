@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap%27'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap%27');
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     ;
 }
 /* Body */
@@ -214,11 +215,15 @@ h2.addUsers_title_form {
     font: bold;
     outline: none;
     text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
+    background-color: #1b2135;
+    color: #eff5ff;
     padding: 5px 30px 5px 30px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
+}
+.addUser_link:hover{
+    background-color: #eff5ff;
+    color:#1b2135;
 }
 
 .ImageDeMADELINE {
@@ -292,9 +297,15 @@ h2.users_title{
 }
 
 .add_button, .less_button{
-    margin: 20px 10px 50px 0;
+    margin: 20px 10px 10px 0;
+    background-color: #1b2135;
+    color: #eff5ff;
+    padding: 14px 20px;
 }
-
+.add_button:hover, .less_button:hover{
+    background-color: #eff5ff;
+    color:#1b2135;
+}
 /* Badges */
 .badgesPage{
     display: flex;
@@ -345,6 +356,7 @@ h2.users_title{
 }
 .h2_leftside, .h2_rightside{
     text-align: center;
+    font-size: 250%;
 }
 .h3_leftside{
     margin-left: 2%;
@@ -576,7 +588,10 @@ h2.users_title{
 }
 
 .liens_footer:hover{
-    color: red;
+    color: #eff5ff;
+}
+.liens_footer{
+    color: #5eb5db;
 }
 
 .copyright_footer{
