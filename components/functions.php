@@ -208,6 +208,30 @@ function createNewBadge() {
 
 //END JEAN
 
+function getAllUserNames(){
+  $bdd = createCursor();
+  $requestAllUserNames = $bdd->query("SELECT firstname, lastname, name_badge FROM users_has_badges INNER JOIN users ON users.id = users_has_badges.fk_id_users INNER JOIN badges ON badges.id_badge = users_has_badges.fk_id_badge ");
+
+  while ($answerOneUserName = $requestAllUserNames->fetch()) {
+    ob_start(); ?>
+    <tr>
+        <td>
+            <?= $answerOneUserName['firstname'] ?>
+        </td> 
+        <td>
+            <?= $answerOneUserName['lastname'] ?>
+        </td> 
+        <td>
+            <?= $answerOneUserName['name_badge'] ?>
+        </td> 
+    </tr>   
+      
+  <?php $content = ob_get_clean();
+    echo $content;
+  };
+}
+
+
 
 function getUsers()
 {
@@ -221,9 +245,41 @@ function editBadge($badge_id)
 {
 }
 
-function removeBadge($badge_id)
+function removeBadge($user_id,$badge_id)
 {
+  $db = createCursor();
+
+  $idUserAndBadge= recupid($user_id,$badge_id);
+
+  $requestFinalAdd = $db->prepare("INSERT INTO users_has_badges (fk_id_users, fk_id_badge) VALUES(?, ?)");
+  $requestFinalAdd->execute(array($idUserAndBadge[0],$idUserAndBadge[1]));
+
 }
+
+function delete($user_id,$badge_id){
+  $db = createCursor();
+
+  $idUserAndBadge= recupid($user_id,$badge_id);
+
+  $requestFinalDelete = $db->prepare("DELETE FROM users_has_badges WHERE fk_id_users=? AND fk_id_badge=? ");
+  $requestFinalDelete->execute(array($idUserAndBadge[0],$idUserAndBadge[1]));
+
+}
+
+function recupid($iduser, $idbadge){
+  $db = createCursor();
+
+  $requestAdd = $db->prepare("SELECT id FROM users WHERE firstname = '$iduser'");
+  $requestAdd->execute();
+  $resultsAdd = $requestAdd->fetch();
+
+  $requestDelete = $db->prepare("SELECT id_badge FROM badges WHERE name_badge = '$idbadge'");
+  $requestDelete->execute();
+  $resultsDelete = $requestDelete->fetch();
+
+  return array($resultsAdd['id'], $resultsDelete['id_badge']);
+}
+
 
 function grantBadgeToUser($badge_id, $user_id)
 {
