@@ -43,9 +43,9 @@ if ($_SESSION['account_type'] === 'ADMIN') {
                 <input type="submit" name="intermediate" value="JS Intermediate"></input>
                 <input type="submit" name="pro" value="JS PRO"></input>
             </form> -->
-            <h3>There are <?= $_SESSION['numberUsers'] ?> users</h3>
-            <h3> <?= createPercentageBadgesStats() ?>% of users have the badge 'JS Newbie'</h3>
-            <h3> <?= whoHasMoreBadges() ?> users or <?= get_percentage($_SESSION['numberUsers'], whoHasMoreBadges()) ?>% of them have more badges than you. Indeed:</h3>
+            <h3>There are <?=  $_SESSION['numberNormies'] ?> normies</h3>
+            <h3> <?= createPercentageBadgesStats() ?>% of normies have the badge 'JS Newbie'</h3>
+            <h3> <?= whoHasMoreBadges() ?> normies or <?= get_percentage($_SESSION['numberNormies'], whoHasMoreBadges()) ?>% of them have more badges than you. Indeed:</h3>
             <?= peopleHasMoreBadges() ?>
         </div>
     </div>

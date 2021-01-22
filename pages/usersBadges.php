@@ -3,7 +3,7 @@
         <div class="usersList_container">
             <div class="usersList_title">
                 <h2 class="users_title">Users list</h2>
-            </div>   
+            </div>
             <table class="users_table">
                 <thead>
                     <tr>
@@ -24,11 +24,11 @@
                         <td>lucieli@hotmail.com</td>
                     </tr>
                 </tbody>
-            </table>  
+            </table>
         </div>
-      
+
         <div class="badges_container">
-            <div>
+            <div class="addUser_button">
                 <a class="addUser_link" href="./index.php?page=addUsers">Add User</a>
             </div>
             <div class="badges_menus">
@@ -44,7 +44,7 @@
                         <option value=""></option>
                     </select>
                 </div>
-            </div> 
+            </div>
             <div class="badges_buttons">
                 <div class="add">
                     <button type="" alt="" class="add_button">+</button>
