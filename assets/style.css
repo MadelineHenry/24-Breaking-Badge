@@ -11,7 +11,6 @@
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-     /* background-color: red;  */
 }
 
 /* Navbar */
@@ -199,6 +198,17 @@ h2.addUsers_title_form {
     color: white;
 }
 
+.addUser_link{
+    font: bold;
+    outline: none;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 5px 30px 5px 30px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+
 .ImageDeMADELINE {
     width: 350px;
     height: 350px;
@@ -248,16 +258,6 @@ h2.users_title{
     margin-top: 80px;
 }
 
-.addUser_link{
-    font: bold;
-    outline: none;
-    text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
-    padding: 5px 30px 5px 30px;
-    border: 1px solid #CCCCCC;
-    border-radius: 4px;
-}
 
 
 .users_menu, .badges_menu{
@@ -348,20 +348,19 @@ h2.users_title{
 .all_the_edit_page{
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    /* align-items: center; */
+    /* width: 100%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
+    margin-bottom: 2%;
+}
+
+.title_formulaire{
+    text-align: center;
 }
 /* Partie modify delete */
 .modify_delete{
-    
-        width: 35%;
-        /* margin: 0 auto; */
-        /* margin-top: 10%; */
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-    
+    width: 30%;    
 }
 .label_modify{
     font-weight: bold;
@@ -400,9 +399,63 @@ h2.users_title{
     font-size: 18px;
     font-weight: bold;
 }
+.bouton_modify:hover{
+    background-color:#53af57;
+    color:white;
+    /* border: 1px solid white; */
+}
+
+.bouton_delete:hover{
+    background-color:rgb(255, 42, 42);
+    color:white;
+}
+
 /* Partie create a new badge */
 .create_new_badge{
+    width: 30%;
+}
+.formulaire_creation{
+    margin-top: 5%;
+    padding: 30px;
+    border: 1px solid black;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    width: 100%;
+}
+.create_color, .create_description , .create_name{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.label_create{
+    font-weight: bold;
+}
+.ensemble_bouton_create{
+    display: flex;
+    justify-content: center;
+}
+
+.bouton_create{
+    background-color: #ddd;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
     width: 35%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bouton_create:hover{
+    background-color:  #4d4d4d;
+    color:white;
 }
 
 
