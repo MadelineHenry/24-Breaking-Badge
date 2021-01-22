@@ -173,7 +173,7 @@ function getUsersName()
   $arrayUsersNames = [];
   if (!empty($_POST['clegetUsers'])) {
     $bdd = createCursor();
-    $requestAllNames = $bdd->query("SELECT firstname FROM users");
+    $requestAllNames = $bdd->query("SELECT firstname FROM users WHERE account_type='NORMIE'");
 
     while ($answerOneName = $requestAllNames->fetch()) {
       $arrayUsersNames[] = $answerOneName['firstname'];
