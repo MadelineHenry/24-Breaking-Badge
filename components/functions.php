@@ -225,6 +225,30 @@ function createNewBadge() {
 
 //END JEAN
 
+function getAllUserNames(){
+  $bdd = createCursor();
+  $requestAllUserNames = $bdd->query("SELECT firstname, lastname, name_badge FROM users_has_badges INNER JOIN users ON users.id = users_has_badges.fk_id_users INNER JOIN badges ON badges.id_badge = users_has_badges.fk_id_badge ");
+
+  while ($answerOneUserName = $requestAllUserNames->fetch()) {
+    ob_start(); ?>
+    <tr>
+        <td>
+            <?= $answerOneUserName['firstname'] ?>
+        </td> 
+        <td>
+            <?= $answerOneUserName['lastname'] ?>
+        </td> 
+        <td>
+            <?= $answerOneUserName['name_badge'] ?>
+        </td> 
+    </tr>   
+      
+  <?php $content = ob_get_clean();
+    echo $content;
+  };
+}
+
+
 
 function getUsers()
 {

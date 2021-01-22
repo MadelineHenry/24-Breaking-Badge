@@ -295,6 +295,7 @@ h2.users_title{
 .badgesPage{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .badge {
@@ -313,21 +314,22 @@ h2.users_title{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     text-align: center;
     margin-left: 10px;
-    margin-bottom: 1%; 
+    margin-bottom: 1%;
+    font-size: 13px; 
 }
 
 .badge_description {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    margin-left: 0.5%;
+    margin-left: 2%;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .allBadges{
@@ -340,11 +342,16 @@ h2.users_title{
 .h2_leftside, .h2_rightside{
     text-align: center;
 }
+.h3_leftside{
+    margin-left: 2%;
+}
 .badgesLeftSide, .badgesRightSide{
     width : 50%;
 }
-.badgesRightSide{
-    margin-top: 1%;
+
+.badgesLeftSide{
+    /* margin-top: 10%; */
+    margin-left: 3%;
 }
 .bouton_edit_badge{
     font: bold;
@@ -352,7 +359,7 @@ h2.users_title{
     text-decoration: none;
     background-color:  #ddd;
     color: rgb(61, 61, 61) ;
-    padding: 10px 60px 10px 60px;
+    padding: 10px 10%;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
 }
@@ -361,27 +368,41 @@ h2.users_title{
     background-color: rgb(61, 61, 61);
 }
 .div_editbadge{
-    text-align: right;
-    margin-right: 10%;
+    text-align: center;
+    /* margin-top: 10%; */
     margin-bottom: 5%;
+    margin-top: 5%;
 }
 .badgesStats{
     margin-left: 10%;
     margin-top: 5%;
 }
-/* .tous_les_badges{
-    width: 50%;
-    margin-left: 1%;
+.partie_allbadges{
+    overflow: auto;
+    height: 40vh;
 }
-.toute_la_partie_all_badges{
-    display: flex;
-    align-items: center;
-    margin-bottom: 1%;
+/*STYLE scrollbar*/
+
+ 
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
 }
-.toute_la_partie_my_badges{
-    display: flex;
-    align-items: center;
-} */
+
+#style-1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
 
 /* Edit page */
 
