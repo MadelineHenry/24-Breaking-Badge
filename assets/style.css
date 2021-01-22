@@ -241,14 +241,15 @@ h2.addUsers_title_form {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 40px;
+    margin-top: 0;
+    margin-right: 60px;
+    margin-left: 60px;
 }
 
 h2.users_title{
     color: rgb(68, 68, 68);
-    text-align: center;
-    font-size: 250%;
-    margin:  10px 0 50px 0;
+    font-size: 25px;
+    margin: 0 0 35px 0;
 }
 
 .usersList_container,.badges_container{
@@ -283,7 +284,7 @@ h2.users_title{
 }
 
 .users_menu{
-    margin: 10px 10px 10px 0;
+    margin: 25px 10px 20px 0;
 }
 
 .badges_menu{
@@ -300,7 +301,6 @@ h2.users_title{
     background-color: #1b2135;
     color: #eff5ff;
     padding: 14px 20px;
-    /* border-radius: 50%; */
 }
 .add_button:hover, .less_button:hover{
     background-color: #eff5ff;
