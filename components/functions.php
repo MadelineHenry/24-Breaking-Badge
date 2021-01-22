@@ -168,6 +168,21 @@ if (!empty($_POST['cleGetBadges'])) {
 }
 }
 
+function getUsersName()
+{
+  $arrayUsersNames = [];
+  if (!empty($_POST['clegetUsers'])) {
+    $bdd = createCursor();
+    $requestAllNames = $bdd->query("SELECT firstname FROM users");
+
+    while ($answerOneName = $requestAllNames->fetch()) {
+      $arrayUsersNames[] = $answerOneName['firstname'];
+    }
+    $jsArray = json_encode($arrayUsersNames);
+    echo $jsArray;
+  }
+}
+
 function deleteOrModifyBadge(){
   if (!empty($_POST["modify_badge"]) or !empty($_POST["delete_badge"])) {
     $modifiedNameBadge = $_POST["modif_name"];

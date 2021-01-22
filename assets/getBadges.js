@@ -7,8 +7,6 @@
         })
         .then(response => response.json())
         .then(text => {
-            console.log(text);
-            
             for (elements of text) {
                 let optionBadge = document.createElement("option")
                 optionBadge.innerHTML = elements;
