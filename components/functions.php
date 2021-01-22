@@ -206,8 +206,8 @@ function removeBadge($user_id,$badge_id)
 
   $var1= recupid($user_id,$badge_id);
 
-  $requestFinalAdd = $db->prepare("INSERT INTO users_has_badges (fk_id_users, fk_id_badge) VALUES('$var1[0]', '$var1[1]')");
-  $requestFinalAdd->execute();
+  $requestFinalAdd = $db->prepare("INSERT INTO users_has_badges (fk_id_users, fk_id_badge) VALUES(?, ?)");
+  $requestFinalAdd->execute(array($var1[0],$var1[1]));
 
 }
 
