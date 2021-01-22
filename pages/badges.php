@@ -18,24 +18,21 @@ if ($_SESSION['account_type'] === 'ADMIN') {
     <div class="badgesLeftSide">
         <?php
         if (!isAdmin()) { ?>
-            <h2>My Badges</h2>
-            <h>You have currently <?= $_SESSION['numberBadgesOfUser'] ?> badges</h>
+            <h2 class="h2_leftside">My Badges</h2>
+            <h3 class="h3_leftside">You have currently <?= $_SESSION['numberBadgesOfUser'] ?> badges</h3>
             <div class=badgesOneUser style="display: flex;"><?= getUserBadges(); ?></div>
         <?php
         }
         ?>
-
-        <h2>All Badges</h2>
+        <h2 class="h2_leftside">All Badges</h2>
+        <div class="partie_allbadges" id="style-1">
         <div><?= getBadges(); ?> </div>
+        </div>
     </div>
+    
     <div class="badgesRightSide">
-        <?php
-        if (isAdmin()) { ?>
-            <button> <a href="./index.php?page=editBadges"> Edit Badges </a></button>
-        <?php
-        }
-        ?>
-        <h2>Some statistics</h2>
+        
+        <h2 class="h2_rightside">Some statistics</h2>
         <div class="badgesStats">
             <!-- <button id="newbie">JS NEWBIE</button> -->
             <!-- <form action="../index.php" method="POST">
@@ -43,12 +40,18 @@ if ($_SESSION['account_type'] === 'ADMIN') {
                 <input type="submit" name="intermediate" value="JS Intermediate"></input>
                 <input type="submit" name="pro" value="JS PRO"></input>
             </form> -->
-            <h3>There are <?= $_SESSION['numberUsers'] ?> users</h3>
-            <h3> <?= createPercentageBadgesStats() ?>% of users have the badge 'JS Newbie'</h3>
-            <h3> <?= whoHasMoreBadges() ?> users or <?= get_percentage($_SESSION['numberUsers'], whoHasMoreBadges()) ?>% of them have more badges than you. Indeed:</h3>
+            <h3>There are <?=  $_SESSION['numberNormies'] ?> normies</h3>
+            <h3> <?= createPercentageBadgesStats() ?>% of normies have the badge 'JS Newbie'</h3>
+            <h3> <?= whoHasMoreBadges() ?> normies or <?= get_percentage($_SESSION['numberNormies'], whoHasMoreBadges()) ?>% of them have more badges than you. Indeed:</h3>
             <?= peopleHasMoreBadges() ?>
         </div>
     </div>
 </div>
+        <?php
+        if (isAdmin()) { ?>
+            <div class="div_editbadge"><a class="bouton_edit_badge" href="./index.php?page=editBadges"> Edit Badges </a></div>
+        <?php
+        }
+        ?>
 
 <!-- //END JEAN -->

@@ -125,6 +125,11 @@ function statsData()
   $_SESSION['numberUsers'] =
     $results['COUNT(id)'];
 
+  $getNumberOfNormies = $cursor->query('SELECT COUNT(id) FROM users WHERE account_type="NORMIE"');
+  $NumberOfNormies = $getNumberOfNormies ->fetch();
+  $_SESSION['numberNormies'] =
+  $NumberOfNormies['COUNT(id)'];  
+
   $getNumberBadgesOfUser = $cursor->prepare('SELECT COUNT(fk_id_users) FROM users_has_badges WHERE fk_id_users=?');
   $getNumberBadgesOfUser->execute(array($_SESSION['user_id']));
   $numberBadgesOfUser = $getNumberBadgesOfUser->fetch();
@@ -134,7 +139,8 @@ function statsData()
 function peopleHasMoreBadges()
 {
   $cursor = createCursor();
-  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users on users_has_badges.fk_id_users=users.id GROUP BY fk_id_users HAVING COUNT(fk_id_badge) >?');
+  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users ON users_has_badges.fk_id_users = users.id
+WHERE account_type="NORMIE" GROUP BY fk_id_users HAVING COUNT(fk_id_badge) > ?');
   $query->execute(array($_SESSION['numberBadgesOfUser']));
 
   while ($results = $query->fetch()) {
@@ -151,10 +157,11 @@ function peopleHasMoreBadges()
 function whoHasMoreBadges()
 {
   $cursor = createCursor();
-  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users on users_has_badges.fk_id_users=users.id GROUP BY fk_id_users HAVING COUNT(fk_id_badge) >?');
+  $query = $cursor->prepare('SELECT firstname,COUNT(fk_id_badge) FROM users_has_badges INNER JOIN users ON users_has_badges.fk_id_users = users.id
+WHERE account_type="NORMIE" GROUP BY fk_id_users HAVING COUNT(fk_id_badge) > ?');
   $query->execute(array($_SESSION['numberBadgesOfUser']));
   $numberPeopleHasMoreBadges=0;
-  while ($results = $query->fetch()) {
+  while ($query->fetch()) {
     $numberPeopleHasMoreBadges++;
   };
   return  $numberPeopleHasMoreBadges;
@@ -162,19 +169,85 @@ function whoHasMoreBadges()
 
 function createPercentageBadgesStats()
 {
-  $bdd = createCursor();
-  $requestNumberBadges = $bdd->query("SELECT COUNT(id) FROM users");
-  $numberBadges = $requestNumberBadges->fetch();
-
-  $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM users_has_badges INNER JOIN badges ON users_has_badges.fk_id_badge = badges.id_badge WHERE name_badge='JS newbie'");
+ $bdd = createCursor();
+   $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM users_has_badges INNER JOIN badges ON users_has_badges.fk_id_badge = badges.id_badge INNER JOIN users ON users_has_badges.fk_id_users = users.id WHERE name_badge='JS newbie' AND account_type='NORMIE'");
   $numberBadgesJSNewbie = $requestNumberBadgesPro->fetch();
 
-  return  get_percentage($numberBadges['COUNT(id)'], $numberBadgesJSNewbie['COUNT(name_badge)']);
+  return  get_percentage($_SESSION['numberNormies'], $numberBadgesJSNewbie['COUNT(name_badge)']);
 }
 
+function getBadgesName() {
+$arrayRecipeDate = [];
+if (!empty($_POST['cleGetBadges'])) {
+  $bdd = createCursor();
+  $requestAllBadges = $bdd->query("SELECT name_badge FROM badges");
 
+  while ($answerOneBadge = $requestAllBadges->fetch()) {
+    $arrayRecipeDate[] = $answerOneBadge['name_badge'];
+  }
+  $jsArray= json_encode($arrayRecipeDate);
+  echo $jsArray;
+}
+}
+
+function deleteOrModifyBadge(){
+  if (!empty($_POST["modify_badge"]) or !empty($_POST["delete_badge"])) {
+    $modifiedNameBadge = $_POST["modif_name"];
+    $modifiedDescriptionBadge = $_POST["modif_description"];
+    $modifiedColorBadge = $_POST["modif_color"];
+    $modifiedBadge = $_POST["badgeToModify"];
+  }
+
+  if (!empty($_POST["modify_badge"])) {
+    $bdd = createCursor();
+    $updateABadge = $bdd->prepare("UPDATE `badges` SET `name_badge`=?,`description_badge`=?,`color_badge`=? WHERE name_badge=?");
+    $updateABadge->execute(array($modifiedNameBadge, $modifiedDescriptionBadge, $modifiedColorBadge, $modifiedBadge));
+  }
+
+  if (!empty($_POST["delete_badge"])) {
+    $bdd = createCursor();
+    $updateABadge = $bdd->prepare("DELETE FROM `badges` WHERE name_badge=?");
+    $updateABadge->execute(array($modifiedBadge));
+  }
+}
+
+function createNewBadge() {
+  if (!empty($_POST["new_badge"])) {
+    $newNameBadge = $_POST["new_name"];
+    $newDescriptionBadge = $_POST["new_description"];
+    $newColorBadge = $_POST["new_color"];
+
+    $bdd = createCursor();
+    $createABadge = $bdd->prepare("INSERT INTO `badges`(`name_badge`, `description_badge`, `color_badge`) VALUES (?,?,?)");
+    $createABadge->execute(array($newNameBadge, $newDescriptionBadge, $newColorBadge));
+  }
+}
 
 //END JEAN
+
+function getAllUserNames(){
+  $bdd = createCursor();
+  $requestAllUserNames = $bdd->query("SELECT firstname, lastname, name_badge FROM users_has_badges INNER JOIN users ON users.id = users_has_badges.fk_id_users INNER JOIN badges ON badges.id_badge = users_has_badges.fk_id_badge ");
+
+  while ($answerOneUserName = $requestAllUserNames->fetch()) {
+    ob_start(); ?>
+    <tr>
+        <td>
+            <?= $answerOneUserName['firstname'] ?>
+        </td> 
+        <td>
+            <?= $answerOneUserName['lastname'] ?>
+        </td> 
+        <td>
+            <?= $answerOneUserName['name_badge'] ?>
+        </td> 
+    </tr>   
+      
+  <?php $content = ob_get_clean();
+    echo $content;
+  };
+}
+
 
 
 function getUsers()

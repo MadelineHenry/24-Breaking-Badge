@@ -1,10 +1,7 @@
+
 <?php
-    if ($_SESSION['account_type'] === 'ADMIN') {
-        include_once('./components/navbarAdmin.php');
-    } else {
-    include("./components/navbarNormies.php");
-    }
-    
+   
+    include_once('./components/navbarAdmin.php');     
     if (isset($_POST['add'])) {
         removeBadge($_POST["userName"],$_POST["badgeName"]);
     }
@@ -12,14 +9,13 @@
         delete($_POST["userName"],$_POST["badgeName"]);
     }
 
-?>
-
+?> 
 
     <div class="usersBadges_container">
         <div class="usersList_container">
             <div class="usersList_title">
                 <h2 class="users_title">Users list</h2>
-            </div>   
+            </div>
             <table class="users_table">
                 <thead>
                     <tr>
@@ -29,28 +25,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Lucie</td>
-                        <td>Mariani</td>
-                        <td>lucieli@hotmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Lucie</td>
-                        <td>Mariani</td>
-                        <td>lucieli@hotmail.com</td>
-                    </tr>
+                    <?= getAllUserNames() ?>
+                    
                 </tbody>
-            </table>  
+            </table>
         </div>
-      
+
         <div class="badges_container">
-            <div class="addUser_button">
-                <a class="addUser_link" href="./addUsers.php">Add User</a>
+            <div>
+                <a class="addUser_link" href="./index.php?page=addUsers">Add User</a>
             </div>
             <form method="POST">
                 <div class="badges_menus">
                     <div class="users_menu">
-                        <label for="">Choise the user</label>
+                        <label for="">Choose the user</label>
                             <select name="userName" id="">
                                 <option value="cemil">cemil</option>
                                 <option value="Johnny">Johnny</option>
@@ -73,6 +61,8 @@
                         <button type="" name="delete" class="less_button">-</button>
                     </div>
                 </div>
+
             </form>
+
         </div>
     </div>
