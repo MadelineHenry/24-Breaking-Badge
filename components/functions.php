@@ -210,7 +210,7 @@ function createNewBadge() {
 
 function getAllUserNames(){
   $bdd = createCursor();
-  $requestAllUserNames = $bdd->query("SELECT firstname, lastname, name_badge FROM users_has_badges INNER JOIN users ON users.id = users_has_badges.fk_id_users INNER JOIN badges ON badges.id_badge = users_has_badges.fk_id_badge ");
+  $requestAllUserNames = $bdd->query("SELECT firstname, GROUP_CONCAT( name_badge ) FROM users_has_badges INNER JOIN users ON users.id = users_has_badges.fk_id_users INNER JOIN badges ON badges.id_badge = users_has_badges.fk_id_badge GROUP BY firstname");
 
   while ($answerOneUserName = $requestAllUserNames->fetch()) {
     ob_start(); ?>
