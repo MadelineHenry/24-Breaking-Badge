@@ -57,24 +57,7 @@ if (isset($_POST['delete'])) {
                 </div>
             </div>
 
-            <form method="POST">
-                <div class="badges_menus">
-                    <div class="users_menu">
-                        <label for="">Choose the user</label>
-                            <select name="userName" id="">
-                                <option value="cemil">cemil</option>
-                                <option value="Johnny">Johnny</option>
-                            </select>
-                    </div>
-                    <div class="badges_menu">
-                        <label for="">Choise the badge</label>
-                        <select name="badgeName" id="badge_select">
-                            <option value="JS PRO">JS PRO</option>
-                            <option value="JS newbie">JS Intermediate</option>
-                            <option value="JS newbie">JS newbie</option>
-                        </select>
-                    </div>
-                </div> 
+           
                 <div class="badges_buttons">
                     <div class="add">
                         <button type="" name="add" class="add_button">Add a badge to the selected person</button>
@@ -84,7 +67,7 @@ if (isset($_POST['delete'])) {
                     </div>
 
                 </div>
-            </div>
+            
 
         </form>
 

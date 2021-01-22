@@ -59,7 +59,7 @@ if ($_SESSION['account_type'] === 'ADMIN') {
 
         <div class="badgesStats">
             <h3>There are <?=  $_SESSION['numberNormies'] ?> normies</h3>
-            <h3> <?= createPercentageBadgesStats() ?>% of normies have the badge 'JS Newbie'</h3>
+            <h3> <?= createPercentageBadgesStats() ?>% of normies have the badge 'Cocaïne'</h3>
             <h3> <?= whoHasMoreBadges() ?> normies or
                     <?= get_percentage($_SESSION['numberNormies'], whoHasMoreBadges()) ?>% of them have more badges than
                     you. Indeed:</h3>
