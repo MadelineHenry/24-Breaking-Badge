@@ -72,20 +72,11 @@ function getBadges()
 {
   $bdd = createCursor();
   $requestAllBadges = $bdd->query("SELECT name_badge, description_badge, color_badge FROM badges");
+$results=$requestAllBadges->fetchAll(PDO::FETCH_ASSOC);
 
-  while ($answerOneBadge = $requestAllBadges->fetch()) {
-    ob_start(); ?>
-    <div class='allBadges'>
-      <div class='badge' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
-        <?= $answerOneBadge['name_badge'] ?>
-      </div>
-      <div class='badge_description'>
-        <?= $answerOneBadge['description_badge'] ?>
-      </div>
-    </div>
-  <?php $content = ob_get_clean();
-    echo $content;
-  };
+    return $results;
+  
+  
 }
 
 function getUserBadges()
@@ -96,16 +87,8 @@ function getUserBadges()
   INNER JOIN badges ON users_has_badges.fk_id_badge =  badges.id_badge
   WHERE id=?");
   $requestBadgesUser->execute(array($_SESSION['user_id']));
-
-  while ($answerOneBadge = $requestBadgesUser->fetch()) {
-    ob_start(); ?>
-    <div class='badge_user' style='background-color:<?= $answerOneBadge['color_badge'] ?>'>
-      <?= $answerOneBadge['name_badge'] ?>
-    </div>
-  <?php
-    $content = ob_get_clean();
-    echo $content;
-  }
+  $answerOneBadge = $requestBadgesUser->fetchAll();
+  return $answerOneBadge;
 }
 
 function get_percentage($total, $number)
