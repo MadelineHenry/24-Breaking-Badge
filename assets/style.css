@@ -11,21 +11,23 @@
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    background-color: #eff5ff;
 }
 
 /* Navbar */
 .header {
     overflow: hidden;
-    background-color: #4d4d4d;
+    background-color:rgb(44, 44, 44);
     padding: 20px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    color: #5eb5db;
 }
 
 .header a {
-    color: black;
+    color: #5eb5db;
     text-align: center;
     text-decoration: none;
     font-size: 25px;
@@ -33,8 +35,8 @@
 }
 
 .header-right a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color:#eff5ff;
+    color:#5eb5db;
 }
 
 .padding_box {
@@ -529,8 +531,8 @@ h2.users_title{
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #4d4d4d;
-    color: black;
+    background-color:rgb(44, 44, 44);
+    color:#5eb5db;
     /* text-align: center; */
     font-family: 'Bodoni Moda', serif;
     padding-bottom: 5px;
