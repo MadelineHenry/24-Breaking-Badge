@@ -17,7 +17,6 @@
 
             <div class="zoom navbar_droite"><a class='padding_box' href="./index.php?page=badges">BADGES</a></div>
             <div class="zoom navbar_droite"><a class='padding_box' href="./index.php?page=usersBadges">USERS</a></div>
-            <div class="zoom navbar_droite"><a class='padding_box' href="./index.php?page=addUsers">ADD USER</a></div>
             <div class="zoom navbar_droite"><a class='padding_box' href="./logout.php">Log out</a></div>
 
         </div>

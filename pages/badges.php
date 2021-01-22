@@ -25,17 +25,17 @@ if ($_SESSION['account_type'] === 'ADMIN') {
         }
         ?>
 
-        <h2>All Badges</h2>
+        <h2 class="h2_leftside">All Badges</h2>
         <div><?= getBadges(); ?> </div>
     </div>
     <div class="badgesRightSide">
         <?php
         if (isAdmin()) { ?>
-            <button> <a href="./index.php?page=editBadges"> Edit Badges </a></button>
+            <div class="div_editbadge"><a class="bouton_edit_badge" href="./index.php?page=editBadges"> Edit Badges </a></div>
         <?php
         }
         ?>
-        <h2>Some statistics</h2>
+        <h2 class="h2_rightside">Some statistics</h2>
         <div class="badgesStats">
             <!-- <button id="newbie">JS NEWBIE</button> -->
             <!-- <form action="../index.php" method="POST">
