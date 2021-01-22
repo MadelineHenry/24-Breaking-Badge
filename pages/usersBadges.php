@@ -64,10 +64,10 @@
                 </div> 
                 <div class="badges_buttons">
                     <div class="add">
-                        <button type="" name="add" class="add_button">+</button>
+                        <button type="" name="add" class="add_button">Add a badge to the selected person</button>
                     </div>
                     <div class="less">
-                        <button type="" name="delete" class="less_button">-</button>
+                        <button type="" name="delete" class="less_button">Delete a badge to the selected person</button>
                     </div>
                 </div>
 
