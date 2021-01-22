@@ -179,17 +179,6 @@ function createPercentageBadgesStats()
 
 function getUsers()
 {
-  $db = createCursor();
-  $request = $db->prepare("SELECT name_badge, color_badge,firstname, lastname FROM users_has_badges 
-  INNER JOIN users ON users_has_badges.fk_id_users=users.id 
-  INNER JOIN badges ON users_has_badges.fk_id_badge =  badges.id_badge");
-
-  $request->execute();
-
-  while ($data = $request->fetch()) {
-    echo $data['firstname'].' '.$data['lastname'].' '.$data['name_badge'];
-    echo '<br>';
-  }
 }
 
 function createBadge()
@@ -204,20 +193,20 @@ function removeBadge($user_id,$badge_id)
 {
   $db = createCursor();
 
-  $var1= recupid($user_id,$badge_id);
+  $idUserAndBadge= recupid($user_id,$badge_id);
 
   $requestFinalAdd = $db->prepare("INSERT INTO users_has_badges (fk_id_users, fk_id_badge) VALUES(?, ?)");
-  $requestFinalAdd->execute(array($var1[0],$var1[1]));
+  $requestFinalAdd->execute(array($idUserAndBadge[0],$idUserAndBadge[1]));
 
 }
 
 function delete($user_id,$badge_id){
   $db = createCursor();
 
-  $var1= recupid($user_id,$badge_id);
+  $idUserAndBadge= recupid($user_id,$badge_id);
 
   $requestFinalDelete = $db->prepare("DELETE FROM users_has_badges WHERE fk_id_users=? AND fk_id_badge=? ");
-  $requestFinalDelete->execute(array($var1[0],$var1[1]));
+  $requestFinalDelete->execute(array($idUserAndBadge[0],$idUserAndBadge[1]));
 
 }
 
