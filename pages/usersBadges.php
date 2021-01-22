@@ -13,16 +13,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Lucie</td>
-                        <td>Mariani</td>
-                        <td>lucieli@hotmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Lucie</td>
-                        <td>Mariani</td>
-                        <td>lucieli@hotmail.com</td>
-                    </tr>
+                    <?= getAllUserNames() ?>
+                    
                 </tbody>
             </table>
         </div>
