@@ -148,7 +148,7 @@ WHERE account_type="NORMIE" GROUP BY fk_id_users HAVING COUNT(fk_id_badge) > ?')
 function createPercentageBadgesStats()
 {
  $bdd = createCursor();
-   $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM users_has_badges INNER JOIN badges ON users_has_badges.fk_id_badge = badges.id_badge INNER JOIN users ON users_has_badges.fk_id_users = users.id WHERE name_badge='JS newbie' AND account_type='NORMIE'");
+   $requestNumberBadgesPro = $bdd->query("SELECT COUNT(name_badge) FROM users_has_badges INNER JOIN badges ON users_has_badges.fk_id_badge = badges.id_badge INNER JOIN users ON users_has_badges.fk_id_users = users.id WHERE name_badge='Cocaïne' AND account_type='NORMIE'");
   $numberBadgesJSNewbie = $requestNumberBadgesPro->fetch();
 
   return  get_percentage($_SESSION['numberNormies'], $numberBadgesJSNewbie['COUNT(name_badge)']);
