@@ -28,7 +28,7 @@
         </div>
 
         <div class="badges_container">
-            <div class="addUser_button">
+            <div>
                 <a class="addUser_link" href="./index.php?page=addUsers">Add User</a>
             </div>
             <div class="badges_menus">

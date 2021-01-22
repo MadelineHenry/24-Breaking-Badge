@@ -16,6 +16,7 @@
             <div class="login_titles">
                 <h1 class="welcome_title">Welcome</h1>
                 <h2 class="BB_title">To Breaking Badges</h2>
+                <!-- <a href="#" class="logo"><img src="./assets/breakingbadge.png" alt="logo"></a> -->
             </div>
             <div>
                 <input for="email" type="email" name="email" placeholder="Email" class="email_input"></input>

@@ -90,24 +90,28 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 15%;
-    
+    background-color: #ffffff;
+    padding: 20px 25px 40px 25px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 25px rgb(212, 211, 211);
 }
 
 .login_container {
-    width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1.welcome_title {
-    color: rgb(68, 68, 68);
+    color: rgb(44, 44, 44);
     font-size: 40px;
     margin-bottom: 5px;
+    margin-left: 20px;
 }
 
 h2.BB_title {
-    color: rgb(68, 68, 68);
+    color: rgb(44, 44, 44);
     font-size: 25px;
     margin: 10px 0 50px 0;
 }
@@ -116,12 +120,16 @@ h2.BB_title {
 .psw_input {
     height: 20px;
     width: 220px;
-    color: rgb(151, 151, 151);
+    background-color: #ffffff;
+    /* ne veut pas appliqué le couleur au texte */
+    color: rgb(61, 61, 61);
     font-size: 15px;
+    font-weight: bold;
     border: none;
-    border-bottom: 1px solid rgb(151, 151, 151);
+    border-bottom: 1px solid rgb(61, 61, 61);
     padding: 5px;
     margin: 0 0 20px;
+
 }
 
 .submit_input {
@@ -133,7 +141,8 @@ h2.BB_title {
 .login_button {
     height: 20px;
     width: 220px;
-    color: rgb(88, 88, 88);
+    background-color: rgb(61, 61, 61);
+    color: #ddd;
     border: none;
     border-radius: 4px;
     padding: 10px 0 25px;
@@ -142,8 +151,8 @@ h2.BB_title {
 }
 
 .login_button:hover {
-    background-color: rgb(0, 102, 255);
-    color: white;
+    color:  rgb(61, 61, 61);
+    background-color: #ddd;
 }
 
 /* addUsers Page */
@@ -259,7 +268,6 @@ h2.users_title{
 }
 
 
-
 .users_menu, .badges_menu{
     display: flex;
     flex-direction: column;
@@ -272,7 +280,6 @@ h2.users_title{
 .badges_menu{
     margin: 10px 10px 10px 0;
 }
-
 
 .badges_buttons{
     display: flex;
@@ -300,6 +307,7 @@ h2.users_title{
     margin-left: 10px;
     margin-bottom: 1%;
 }
+
 .badge_user{
     display: flex;
     justify-content: center;
