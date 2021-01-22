@@ -35,8 +35,7 @@ function session_start_once()
       $_SESSION['email'] = $email;
       $_SESSION['firstname'] = $results['firstname'];
       $_SESSION['lastname'] = $results['lastname'];
-    //JEAN
-    $_SESSION['numberUsers'] =
+      $_SESSION['numberUsers'] =
       $results['COUNT(id)'];
 
     return true;
@@ -44,21 +43,17 @@ function session_start_once()
   return false;
 }
 
-function signin()
+function signin($firstname,$lastname,$email,$password,$account_type)
 {
   session_start_once();
 
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-  $email = $_POST['email'];
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $account_type = $_POST['account_type'];
+  $password = password_hash($password, PASSWORD_DEFAULT);
+
 
   $db = createCursor();
   $sql = "INSERT INTO users (email, password, firstname, lastname, account_type) VALUES ('$email', '$password', '$firstname', '$lastname', '$account_type')";
   $req = $db->prepare($sql);
   $req->execute();
-  header("location:badges.php");
 }
 
 function logout()

@@ -1,14 +1,11 @@
 <?php
-    // include('./components/functions.php');
 
-    if (!empty($_POST["email"])) {
+    if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         if (login($_POST["email"],$_POST["password"])) {
             header("location:index.php");
         }
-        else{
-            echo 'log not very ok';
-        }
     }
+    
 ?>
 <div class="login_page">
     <div class="login_container">
