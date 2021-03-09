@@ -57,6 +57,10 @@ Based on an organisation with a Trello and sketch :
 ## Final Result
 You can find the website [here](http://breakingbadge.infinityfreeapp.com/)
 
+(Some useful credentials :
+ADMIN: email = kill@breakingbadge.com psw= Kill2021
+STUDENT: email = madeline@breakingbadge.com psw=Madeline2021 )
+
 ## Auteurs
 * **Jean** _alias_ [@JeanFabry](https://github.com/JeanFabry)
 * **Madeline** _alias_ [@MadelineHenry](https://github.com/MadelineHenry)
